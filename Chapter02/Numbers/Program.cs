@@ -50,9 +50,16 @@ decimal d = 0.2M;
 
 if (c + d == 0.3M)
 {
-    Console.WriteLine($"{c} + {d} equals {0.3M}.");
+    Console.WriteLine($"{c} + {d} equals {0.3M}.\n");
 }
 else
 {
-    Console.WriteLine($"{c} + {d} does NOT equal {0.3M}.");
+    Console.WriteLine($"{c} + {d} does NOT equal {0.3M}.\n");
+}
+
+// sizeof requires unsafe code block when not using common used types
+unsafe
+{
+    Console.WriteLine($"Half uses {sizeof(Half)} bytes and can store numbers in the range of {Half.MinValue:N0} to {Half.MaxValue:N0}.");
+    Console.WriteLine($"Int128 uses {sizeof(Int128)} bytes and can store numbers in the range of {Int128.MinValue:N0} to {Int128.MaxValue:N0}.\n");
 }
