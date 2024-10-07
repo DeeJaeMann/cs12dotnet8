@@ -10,6 +10,11 @@ WriteLine($"Computer named {Env.MachineName} says \"No.\"");
 
 using System.Reflection; // To use Assembly, TypeName, etc.
 
+// Declare some unused variables using types in
+// additional assemblies to make them load
+System.Data.DataSet ds = new();
+HttpClient client = new();
+
 // Get the assembly that is the entry point for thi sapp
 Assembly? myApp = Assembly.GetEntryAssembly();
 
