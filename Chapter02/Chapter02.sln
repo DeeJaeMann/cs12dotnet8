@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Numbers", "Numbers\Numbers.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Variables", "Variables\Variables.csproj", "{FCD2F4D4-E713-4F6A-AF29-1F3353A35C9D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Formatting", "Formatting\Formatting.csproj", "{761A2260-6C5B-4970-ABE8-B8E0BB1E3C1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{FCD2F4D4-E713-4F6A-AF29-1F3353A35C9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCD2F4D4-E713-4F6A-AF29-1F3353A35C9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCD2F4D4-E713-4F6A-AF29-1F3353A35C9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{761A2260-6C5B-4970-ABE8-B8E0BB1E3C1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{761A2260-6C5B-4970-ABE8-B8E0BB1E3C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{761A2260-6C5B-4970-ABE8-B8E0BB1E3C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{761A2260-6C5B-4970-ABE8-B8E0BB1E3C1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
