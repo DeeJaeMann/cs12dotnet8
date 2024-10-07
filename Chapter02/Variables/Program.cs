@@ -67,7 +67,12 @@ List<Person> people = new()
 Console.WriteLine($"default(int) = {default(int)}");
 Console.WriteLine($"default(bool) = {default(bool)}");
 Console.WriteLine($"default(DateTime) = {default(DateTime)}");
-Console.WriteLine($"default(string) = {default(string)}");
+Console.WriteLine($"default(string) = {default(string)}\n");
+
+int number = 13;
+Console.WriteLine($"number set to: {number}");
+number = default;
+Console.WriteLine($"number reset to default: {number}\n");
 
 class Person
 {
