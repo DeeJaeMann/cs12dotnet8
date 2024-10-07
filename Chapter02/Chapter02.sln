@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vocabulary", "Vocabulary\Vo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Numbers", "Numbers\Numbers.csproj", "{8CC900C2-F90F-4970-A43E-AAA3F8C7CBD3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Variables", "Variables\Variables.csproj", "{FCD2F4D4-E713-4F6A-AF29-1F3353A35C9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{8CC900C2-F90F-4970-A43E-AAA3F8C7CBD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CC900C2-F90F-4970-A43E-AAA3F8C7CBD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CC900C2-F90F-4970-A43E-AAA3F8C7CBD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCD2F4D4-E713-4F6A-AF29-1F3353A35C9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCD2F4D4-E713-4F6A-AF29-1F3353A35C9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCD2F4D4-E713-4F6A-AF29-1F3353A35C9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCD2F4D4-E713-4F6A-AF29-1F3353A35C9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
