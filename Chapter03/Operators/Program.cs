@@ -61,3 +61,25 @@ WriteLine($"p\t| {p ^ p, -5}\t| {p ^ q, -5}");
 WriteLine($"q\t| {q ^ p,-5}\t| {q ^ q,-5}");
 
 #endregion
+
+#region Conditional Logical Operators
+
+WriteLine();
+WriteLine($"p & DoStuff() = {p & DoStuff()}");
+WriteLine($"q & DoStuff() = {q & DoStuff()}");
+WriteLine();
+WriteLine($"p && DoStuff() = {p && DoStuff()}");
+WriteLine($"q && DoStuff() = {q && DoStuff()}"); // DoStuff() doesn't execute
+
+
+#endregion
+
+#region Helper functions
+
+static bool DoStuff()
+{
+    WriteLine("I am doing some stuff.");
+    return true;
+}
+
+#endregion
