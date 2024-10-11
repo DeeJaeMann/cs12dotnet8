@@ -59,3 +59,9 @@ A_label:
 WriteLine($"After A_label");
 
 #endregion
+
+#region Pattern Matching Switch Statements
+
+
+
+#endregion
