@@ -35,3 +35,13 @@ for (int y = 1; y <= 10; y += 3)
 }
 
 #endregion
+#region foreach loop
+
+string[] names = { "Adam", "Barry", "Charlie" };
+
+foreach (string name in names)
+{
+    WriteLine($"{name} has {name.Length} characters.");
+}
+
+#endregion
