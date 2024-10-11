@@ -1,2 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿#region While Loop
+int x = 0;
+while (x < 10)
+{
+    WriteLine(x);
+    x++;
+}
+
+#endregion
