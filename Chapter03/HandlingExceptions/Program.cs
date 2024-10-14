@@ -33,6 +33,7 @@ WriteLine("After parsing");
 
 #endregion
 #region Checked block
+// For default overflow behavior during runtime
 
 WriteLine();
 
@@ -54,5 +55,24 @@ catch (OverflowException)
 {
     WriteLine("The code overflowed but I caught the exception.");
 }
+
+#endregion
+#region Unchecked blocks
+// For overflow behavior at compile-time
+// Rarely used, just for demonstration purposes
+
+WriteLine();
+
+unchecked
+{
+
+    int y = int.MaxValue + 1;
+    WriteLine($"Initial value: {y}");
+    y--;
+    WriteLine($"After decrementing: {y}");
+    y--;
+    WriteLine($"After decrementing: {y}");
+}
+
 
 #endregion
