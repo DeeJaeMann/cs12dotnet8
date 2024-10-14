@@ -1,4 +1,5 @@
-﻿using static System.Convert;
+﻿using static System.Convert; // For ToInt32()
+using System.Globalization; // For CultureInfo
 
 #region Casting
 
@@ -109,5 +110,34 @@ WriteLine();
 // Convert array to Base64 strting and output
 string encoded = ToBase64String(binaryObject);
 WriteLine($"Binary Object as Base64: {encoded}");
+
+#endregion
+#region Parse strings to numbers or dates and times
+
+WriteLine();
+
+// Set current culture
+CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-us");
+
+int friends = int.Parse("27");
+DateTime birthday = DateTime.Parse("4 June 1980");
+WriteLine($"I have {friends} friends to invite to my party.");
+WriteLine($"My birthday is {birthday}.");
+WriteLine($"My birthday is {birthday:D}.");
+
+WriteLine();
+
+// TryParse
+Write("How many eggs are there? ");
+string? input = ReadLine();
+
+if (int.TryParse(input, out int count))
+{
+    WriteLine($"There are {count} eggs.");
+}
+else
+{
+    WriteLine("I could not parse the input.");
+}
 
 #endregion
