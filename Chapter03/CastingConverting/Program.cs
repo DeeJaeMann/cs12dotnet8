@@ -34,7 +34,7 @@ for (int i = 8; i >= -8; i--)
 WriteLine("{0,12} {0,34:B32}", int.MinValue);
 
 #endregion
-#region Converting
+#region Converting numbers
 
 WriteLine();
 
@@ -68,5 +68,18 @@ for (int x = 0; x < 8; x++)
     WriteLine("|");
 }
 WriteLine();
+
+foreach (double n in doubles)
+{
+    WriteLine(format:
+    "Math.Round({0}, 0, MidpointRounding.AwayFromZero) is {1}",
+    arg0: n,
+    arg1: Math.Round(value: n, digits: 0, mode: MidpointRounding.AwayFromZero));
+}
+
+#endregion
+#region Convert to string
+
+
 
 #endregion
