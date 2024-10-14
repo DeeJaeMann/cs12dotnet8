@@ -1,2 +1,2 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿TimesTable(7);
+TimesTable(number: 7, size: 20);
