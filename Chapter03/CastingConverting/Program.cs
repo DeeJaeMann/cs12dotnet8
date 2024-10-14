@@ -80,6 +80,34 @@ foreach (double n in doubles)
 #endregion
 #region Convert to string
 
+WriteLine();
 
+int number = 12;
+WriteLine(number.ToString());
+bool boolean = true;
+WriteLine(boolean.ToString());
+DateTime now = DateTime.Now;
+WriteLine(now.ToString());
+object me = new();
+WriteLine(me.ToString());
+
+WriteLine();
+
+// Allocate an array of 128 bytes
+byte[] binaryObject = new byte[128];
+
+// Populate array with random bytes
+Random.Shared.NextBytes(binaryObject);
+
+WriteLine("Bindary Object as bytes:");
+for (int index = 0; index < binaryObject.Length; index++)
+{
+    Write($"{binaryObject[index]:X2} ");
+}
+WriteLine();
+
+// Convert array to Base64 strting and output
+string encoded = ToBase64String(binaryObject);
+WriteLine($"Binary Object as Base64: {encoded}");
 
 #endregion
