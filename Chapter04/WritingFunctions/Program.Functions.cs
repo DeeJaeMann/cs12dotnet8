@@ -60,10 +60,10 @@ partial class Program
     }
 
     /// <summary>
-    /// Determines ordinal given number
+    /// Pass a 32-bit unsigned integer and it will be converted into its ordinal equivalent
     /// </summary>
-    /// <param name="number">Number to determine</param>
-    /// <returns></returns>
+    /// <param name="number">Number as a cardinal value e.g. 1, 2, 3, etc.</param>
+    /// <returns>Number as an ordinal value e.g. 1st, 2nd, 3rd, etc.</returns>
     static string CardinalToOrdinal(uint number)
     {
         uint lastTwoDigits = number % 100;
@@ -119,18 +119,33 @@ partial class Program
         }
         else
         {
-            return number * Factorial(number - 1);
+            checked // For overflow
+            {
+                return number * Factorial(number - 1);
+            }
         }
     }
 
     /// <summary>
-    /// Outputs to console factorial from 1! to 15!
+    /// Outputs to console factorial from -2! to 15!
     /// </summary>
     static void RunFactorial()
     {
-        for (int i = 1; i <= 15; i++)
+        //for (int i = 1; i <= 15; i++)
+        for (int i = -2; i <= 15; i++)
         {
-            WriteLine($"{i}! = {Factorial(i):N0}");
+            try
+            {
+                WriteLine($"{i}! = {Factorial(i):N0}");
+            }
+            catch (OverflowException)
+            {
+                WriteLine($"{i}! is too big for a 32-bit integer.");
+            }
+            catch (Exception ex)
+            {
+                WriteLine($"{i}! throws {ex.GetType()}: {ex.Message}");
+            }
         }
     }
 }
