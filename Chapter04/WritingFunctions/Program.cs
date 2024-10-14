@@ -35,4 +35,9 @@ RunFactorial();
 */
 
 // RunFibImperative demonstration
+/*
 RunFibImperative();
+*/
+
+// RunFibFunctional demonstration
+RunFibFunctional();
