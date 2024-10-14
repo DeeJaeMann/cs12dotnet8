@@ -98,4 +98,39 @@ partial class Program
         }
         WriteLine();
     }
+
+    /// <summary>
+    /// Calculates factorial of given number
+    /// </summary>
+    /// <param name="number">Number to calculate</param>
+    /// <returns>Factorial of number</returns>
+    /// <exception cref="ArgumentOutOfRangeException">Negative numbers</exception>
+    static int Factorial(int number)
+    {
+        if (number < 0)
+        {
+            throw new ArgumentOutOfRangeException(message:
+                $"The factorial function is defined for non-negative integers only. Input {number}",
+                paramName: nameof(number));
+        }
+        else if (number == 0)
+        {
+            return 1;
+        }
+        else
+        {
+            return number * Factorial(number - 1);
+        }
+    }
+
+    /// <summary>
+    /// Outputs to console factorial from 1! to 15!
+    /// </summary>
+    static void RunFactorial()
+    {
+        for (int i = 1; i <= 15; i++)
+        {
+            WriteLine($"{i}! = {Factorial(i):N0}");
+        }
+    }
 }
