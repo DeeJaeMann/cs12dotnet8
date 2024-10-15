@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Debugging", "Debugging\Debu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotReloading", "HotReloading\HotReloading.csproj", "{9EDFFE2F-4627-467B-A000-29C3CC2868DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instrumenting", "Instrumenting\Instrumenting.csproj", "{53373D02-E5F0-4A99-8665-5C87FF3B408F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{9EDFFE2F-4627-467B-A000-29C3CC2868DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EDFFE2F-4627-467B-A000-29C3CC2868DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EDFFE2F-4627-467B-A000-29C3CC2868DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53373D02-E5F0-4A99-8665-5C87FF3B408F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53373D02-E5F0-4A99-8665-5C87FF3B408F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53373D02-E5F0-4A99-8665-5C87FF3B408F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53373D02-E5F0-4A99-8665-5C87FF3B408F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
