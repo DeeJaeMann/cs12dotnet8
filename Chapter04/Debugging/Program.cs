@@ -1,5 +1,8 @@
-﻿
-double a = 4.5;
+﻿Write("Enter a number: ");
+string number = ReadLine()!;
+
+//double a = 4.5;
+double a = double.Parse(number);
 double b = 2.5;
 double answer = Add(a, b);
 
