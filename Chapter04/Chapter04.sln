@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WritingFunctions", "Writing
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Debugging", "Debugging\Debugging.csproj", "{125450C2-F95D-4A44-AAD2-C1511554B2EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotReloading", "HotReloading\HotReloading.csproj", "{9EDFFE2F-4627-467B-A000-29C3CC2868DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{125450C2-F95D-4A44-AAD2-C1511554B2EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{125450C2-F95D-4A44-AAD2-C1511554B2EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{125450C2-F95D-4A44-AAD2-C1511554B2EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EDFFE2F-4627-467B-A000-29C3CC2868DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EDFFE2F-4627-467B-A000-29C3CC2868DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EDFFE2F-4627-467B-A000-29C3CC2868DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EDFFE2F-4627-467B-A000-29C3CC2868DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
