@@ -1,2 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Packt.Shared; // For Person
+
+ConfigureConsole(); // Set current culture to US English
+
+Person bob = new();
+WriteLine(bob);
