@@ -13,6 +13,10 @@ bob.Born = new DateTimeOffset(
 
 bob.FavoriteAncientWonder = WondersOfTheAncientWorld.StatueOfZeusAtOlympia;
 
+bob.BucketList =
+    WondersOfTheAncientWorld.HangingGardensOfBabylon | 
+    WondersOfTheAncientWorld.MausoleumAtHalicarnassus;
+
 WriteLine(bob);
 WriteLine(format: "{0} was born on {1:D}.", // Long date
     arg0: bob.Name, arg1: bob.Born);
@@ -22,6 +26,8 @@ WriteLine(
     arg0: bob.Name,
     arg1: bob.FavoriteAncientWonder,
     arg2: (int)bob.FavoriteAncientWonder);
+
+WriteLine($"{bob.Name}'s bucket list is {bob.BucketList}");
 
 // Object initializer syntax
 Person alice = new()
