@@ -14,8 +14,20 @@ bob.Born = new DateTimeOffset(
 bob.FavoriteAncientWonder = WondersOfTheAncientWorld.StatueOfZeusAtOlympia;
 
 bob.BucketList =
-    WondersOfTheAncientWorld.HangingGardensOfBabylon | 
+    WondersOfTheAncientWorld.HangingGardensOfBabylon |
     WondersOfTheAncientWorld.MausoleumAtHalicarnassus;
+
+// Demonstrating different ways to add a Person object into Children
+// All versions of C#
+Person alfred = new Person();
+alfred.Name = "Alfred";
+bob.Children.Add(alfred);
+
+// C# 3 and later
+bob.Children.Add(new Person { Name = "Bella" });
+
+// C# 9 and later
+bob.Children.Add(new() { Name = "Zoe" });
 
 WriteLine(bob);
 WriteLine(format: "{0} was born on {1:D}.", // Long date
@@ -28,6 +40,15 @@ WriteLine(
     arg2: (int)bob.FavoriteAncientWonder);
 
 WriteLine($"{bob.Name}'s bucket list is {bob.BucketList}");
+WriteLine($"{bob.Name} has {bob.Children.Count} children:");
+
+for (int childIndex = 0; childIndex < bob.Children.Count; childIndex++)
+{
+    WriteLine($"> {bob.Children[childIndex].Name}");
+}
+
+
+WriteLine();
 
 // Object initializer syntax
 Person alice = new()
