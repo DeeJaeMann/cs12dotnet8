@@ -25,4 +25,27 @@ public class Person : Object
     }
 
     #endregion
+    #region Methods: Actions the type can perform
+
+    public void WriteToConsole()
+    {
+        WriteLine($"{Name} was born on a {Born:dddd}.");
+    }
+
+    public string GetOrigin()
+    {
+        return $"{Name} was bron on {HomePlanet}";
+    }
+
+    public string SayHello()
+    {
+        return $"{Name} says 'Hello!'";
+    }
+
+    public string SayHelloTo(string name)
+    {
+        return $"{Name} says 'Hello, {name}!'";
+    }
+
+    #endregion
 }

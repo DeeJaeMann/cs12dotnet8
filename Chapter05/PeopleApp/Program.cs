@@ -111,3 +111,10 @@ WriteLine(format:
     arg0: blankPerson.Name,
     arg1: blankPerson.HomePlanet,
     arg2: blankPerson.Instantiated);
+
+WriteLine();
+
+bob.WriteToConsole();
+WriteLine(bob.GetOrigin());
+WriteLine(bob.SayHello());
+WriteLine(bob.SayHelloTo("Emily"));
