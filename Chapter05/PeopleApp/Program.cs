@@ -184,3 +184,33 @@ catch (Exception ex)
 {
     WriteLine($"{ex.GetType()} says: {ex.Message} number was {number}");
 }
+
+WriteLine();
+
+Person sam = new()
+{
+    Name = "Sam",
+    Born = new(1969, 6, 25, 0, 0, 0, TimeSpan.Zero)
+};
+
+WriteLine(sam.Origin);
+WriteLine(sam.Greeting);
+WriteLine(sam.Age);
+
+WriteLine();
+
+sam.FavoriteIceCream = "Chocolate Fudge";
+WriteLine($"Sam's favorite ice-cream flavor is {sam.FavoriteIceCream}.");
+
+string color = "red";
+
+try
+{
+    sam.FavoritePrimaryColor = color;
+    WriteLine($"Sam's favorite primary color is {sam.FavoritePrimaryColor}.");
+}
+catch (Exception ex)
+{
+    WriteLine("Tried to set {0} to '{1}': {2}",
+        nameof(sam.FavoritePrimaryColor), color, ex.Message);
+}
