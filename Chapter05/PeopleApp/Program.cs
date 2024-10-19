@@ -63,3 +63,21 @@ Person alice = new()
 
 WriteLine(format: "{0} was born on {1:d}.",
     arg0: alice.Name, arg1: alice.Born);
+
+WriteLine();
+
+BankAccount.InterestRate = 0.012M;
+
+BankAccount jonesAccount = new();
+jonesAccount.AccountName = "Mrs. Jones";
+jonesAccount.Balance = 2400;
+WriteLine(format: "{0} earned {1:C} interest.",
+    arg0: jonesAccount.AccountName,
+    arg1: jonesAccount.Balance * BankAccount.InterestRate);
+
+BankAccount gerrierAccount = new();
+gerrierAccount.AccountName = "Ms. Gerrier";
+gerrierAccount.Balance = 98;
+WriteLine(format: "{0} earned {1:C} interest.",
+    arg0: gerrierAccount.AccountName,
+    arg1: gerrierAccount.Balance * BankAccount.InterestRate);
