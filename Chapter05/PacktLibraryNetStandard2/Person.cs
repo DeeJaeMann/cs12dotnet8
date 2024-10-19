@@ -9,6 +9,10 @@ public class Person : Object
     public WondersOfTheAncientWorld FavoriteAncientWonder;
     public WondersOfTheAncientWorld BucketList;
     public List<Person> Children = new();
+    // Constant field
+    public const string Species = "Homo Sapiens";
+    // Read only - preferred to constants
+    public readonly string HomePlanet = "Earth";
 
     #endregion
 }

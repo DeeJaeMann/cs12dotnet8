@@ -49,6 +49,9 @@ for (int childIndex = 0; childIndex < bob.Children.Count; childIndex++)
     WriteLine($"> {bob.Children[childIndex].Name}");
 }
 
+WriteLine($"{bob.Name} is a {Person.Species}.");
+WriteLine($"{bob.Name} was born on {bob.HomePlanet}.");
+
 
 WriteLine();
 
