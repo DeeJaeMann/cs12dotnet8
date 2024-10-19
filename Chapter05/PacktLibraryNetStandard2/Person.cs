@@ -6,7 +6,8 @@ public partial class Person : Object
 
     public string? Name;
     public DateTimeOffset Born;
-    public WondersOfTheAncientWorld FavoriteAncientWonder;
+    // Moved to PersonAutoGen
+    //public WondersOfTheAncientWorld FavoriteAncientWonder;
     public WondersOfTheAncientWorld BucketList;
     public List<Person> Children = new();
     // Constant field

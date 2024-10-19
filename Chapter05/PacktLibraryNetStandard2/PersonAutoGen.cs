@@ -48,5 +48,29 @@ public partial class Person
         }
     }
 
+    private WondersOfTheAncientWorld _favoriteAncientWonder;
+    public WondersOfTheAncientWorld FavoriteAncientWonder
+    {
+        get { return _favoriteAncientWonder; }
+        set 
+        {
+            string wonderName = value.ToString();
+
+            if (wonderName.Contains(','))
+            {
+                throw new ArgumentException(
+                    message: "Favorite ancient wonder can only have a single enum value.",
+                    paramName: nameof(FavoriteAncientWonder));
+            }
+            if (!Enum.IsDefined(typeof(WondersOfTheAncientWorld), value))
+            {
+                throw new ArgumentException(
+                    $"{value} is not a member of the WondersOfTheAncientWorld enum.",
+                    paramName: nameof(FavoriteAncientWonder));
+            }
+            _favoriteAncientWonder = value;
+        }
+    }
+
 # endregion
 }

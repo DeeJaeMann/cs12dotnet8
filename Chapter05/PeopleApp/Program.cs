@@ -214,3 +214,8 @@ catch (Exception ex)
     WriteLine("Tried to set {0} to '{1}': {2}",
         nameof(sam.FavoritePrimaryColor), color, ex.Message);
 }
+
+// Creates an exception
+//bob.FavoriteAncientWonder = WondersOfTheAncientWorld.StatueOfZeusAtOlympia | WondersOfTheAncientWorld.GreatPyramidOfGiza;
+bob.FavoriteAncientWonder = WondersOfTheAncientWorld.StatueOfZeusAtOlympia;
+
