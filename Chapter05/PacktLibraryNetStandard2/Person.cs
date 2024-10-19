@@ -58,5 +58,19 @@ public class Person : Object
             arg2: active);
         }
 
+    public void PassingParameters(int w, in int x, ref int y, out int z)
+    {
+        // out cannot have default
+        // must be initialized inside method
+        z = 100;
+
+        // Increment params (except read-only x)
+        w++;
+        y++;
+        z++;
+
+        WriteLine($"In the method: w={w}, x={x}, y={y}, z={z}");
+    }
+
     #endregion
 }
