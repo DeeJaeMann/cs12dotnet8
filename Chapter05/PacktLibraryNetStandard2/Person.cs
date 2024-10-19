@@ -72,5 +72,17 @@ public class Person : Object
         WriteLine($"In the method: w={w}, x={x}, y={y}, z={z}");
     }
 
+    // Method that returns tuple (string, int)
+    public (string, int) GetFruit()
+    {
+        return ("Apples", 5);
+    }
+
+    // Tuple with named fields
+    public (string Name, int Number) GetNamedFruit()
+    {
+        return (Name: "Apples", Number: 5);
+    }
+
     #endregion
 }

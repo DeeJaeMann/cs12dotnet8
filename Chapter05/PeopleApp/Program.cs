@@ -1,5 +1,7 @@
 ﻿using Packt.Shared;
 using PacktLibraryModern; // For Person
+// C# 12 aliasing touples
+using Fruit = (string Name, int Number);
 
 ConfigureConsole(); // Set current culture to US English
 
@@ -142,3 +144,18 @@ WriteLine($"Before: e={e}, f={f}, g={g}, h doesn't exist yet!");
 // C# 7 or later
 bob.PassingParameters(e, f, ref g, out int h);
 WriteLine($"After: e={e}, f={f}, g={g}, h={h}");
+
+WriteLine();
+
+(string, int) fruit = bob.GetFruit();
+WriteLine($"{fruit.Item1}, {fruit.Item2} there are.");
+// Without aliased tuple type
+//var fruitNamed = bob.GetNamedFruit();
+// With aliased tuple type
+Fruit fruitNamed = bob.GetNamedFruit();
+WriteLine($"There are {fruitNamed.Number} {fruitNamed.Name}.");
+
+var thing1 = ("Neville", 4);
+WriteLine($"{thing1.Item1} has {thing1.Item2} children.");
+var thing2 = (bob.Name, bob.Children.Count);
+WriteLine($"{thing2.Name} has {thing2.Count} children.");
