@@ -1,6 +1,6 @@
 namespace Packt.Shared;
 
-public class Person : Object
+public partial class Person : Object
 {
     #region Fields: Data or state for this person
 
