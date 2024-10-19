@@ -1,6 +1,6 @@
 ﻿using Packt.Shared;
 using PacktLibraryModern; // For Person
-// C# 12 aliasing touples
+// C# 12 aliasing tuples
 using Fruit = (string Name, int Number);
 
 ConfigureConsole(); // Set current culture to US English
@@ -159,3 +159,7 @@ var thing1 = ("Neville", 4);
 WriteLine($"{thing1.Item1} has {thing1.Item2} children.");
 var thing2 = (bob.Name, bob.Children.Count);
 WriteLine($"{thing2.Name} has {thing2.Count} children.");
+
+// Deconstructing tuples
+(string fruitName, int fruitNumber) = bob.GetFruit();
+WriteLine($"Deconstructed tuple: {fruitName}, {fruitNumber}");
