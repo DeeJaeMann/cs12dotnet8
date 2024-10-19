@@ -85,4 +85,23 @@ public class Person : Object
     }
 
     #endregion
+    #region Deconstructors
+
+    public void Deconstruct(out string? name,
+        out DateTimeOffset dob)
+    {
+        name = Name;
+        dob = Born;
+    }
+
+    public void Deconstruct(out string? name,
+        out DateTimeOffset dob,
+        out WondersOfTheAncientWorld fav)
+    {
+        name = Name;
+        dob = Born;
+        fav = FavoriteAncientWonder;
+    }
+
+    #endregion
 }
