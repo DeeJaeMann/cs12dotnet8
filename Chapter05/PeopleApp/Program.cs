@@ -117,4 +117,4 @@ WriteLine();
 bob.WriteToConsole();
 WriteLine(bob.GetOrigin());
 WriteLine(bob.SayHello());
-WriteLine(bob.SayHelloTo("Emily"));
+WriteLine(bob.SayHello("Emily"));
