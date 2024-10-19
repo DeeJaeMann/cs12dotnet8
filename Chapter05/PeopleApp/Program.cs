@@ -17,6 +17,7 @@ bob.BucketList =
     WondersOfTheAncientWorld.HangingGardensOfBabylon |
     WondersOfTheAncientWorld.MausoleumAtHalicarnassus;
 
+
 // Demonstrating different ways to add a Person object into Children
 // All versions of C#
 Person alfred = new Person();
@@ -40,6 +41,7 @@ WriteLine(
     arg2: (int)bob.FavoriteAncientWonder);
 
 WriteLine($"{bob.Name}'s bucket list is {bob.BucketList}");
+WriteLine($"BucketList Enum as int {(int)bob.BucketList}");
 WriteLine($"{bob.Name} has {bob.Children.Count} children:");
 
 for (int childIndex = 0; childIndex < bob.Children.Count; childIndex++)
