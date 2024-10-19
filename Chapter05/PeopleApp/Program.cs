@@ -133,3 +133,12 @@ int d = 40;
 WriteLine($"Before: a={a}, b={b}, c={c}, d={d}");
 bob.PassingParameters(a, b, ref c, out d);
 WriteLine($"After: a={a}, b={b}, c={c}, d={d}");
+
+int e = 50;
+int f = 60;
+int g = 70;
+
+WriteLine($"Before: e={e}, f={f}, g={g}, h doesn't exist yet!");
+// C# 7 or later
+bob.PassingParameters(e, f, ref g, out int h);
+WriteLine($"After: e={e}, f={f}, g={g}, h={h}");
