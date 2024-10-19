@@ -13,6 +13,16 @@ public class Person : Object
     public const string Species = "Homo Sapiens";
     // Read only - preferred to constants
     public readonly string HomePlanet = "Earth";
+    public readonly DateTime Instantiated;
+
+    #endregion
+    #region Constructors: Called when using new to instantiate a type
+
+    public Person()
+    {
+        Name = "Unknown";
+        Instantiated = DateTime.Now;
+    }
 
     #endregion
 }

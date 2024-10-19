@@ -1,4 +1,5 @@
-﻿using Packt.Shared; // For Person
+﻿using Packt.Shared;
+using PacktLibraryModern; // For Person
 
 ConfigureConsole(); // Set current culture to US English
 
@@ -84,3 +85,20 @@ gerrierAccount.Balance = 98;
 WriteLine(format: "{0} earned {1:C} interest.",
     arg0: gerrierAccount.AccountName,
     arg1: gerrierAccount.Balance * BankAccount.InterestRate);
+
+WriteLine();
+
+Book book = new()
+{
+    Isbn = "978-1803237800",
+    Title = "C# 12 and .NET 8 - Modern Cross-Platform Development Fundamentals"
+};
+WriteLine("{0}: {1} written by {2} has {3:N0} pages.",
+    book.Isbn, book.Title, book.Author, book.PageCount);
+
+Person blankPerson = new();
+WriteLine(format:
+    "{0} of {1} was created at {2:hh:mm:ss} on {2:dddd}.",
+    arg0: blankPerson.Name,
+    arg1: blankPerson.HomePlanet,
+    arg2: blankPerson.Instantiated);
