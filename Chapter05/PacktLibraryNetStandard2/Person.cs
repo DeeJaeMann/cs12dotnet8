@@ -84,6 +84,23 @@ public class Person : Object
         return (Name: "Apples", Number: 5);
     }
 
+    // Method with local function
+    public static int Factorial(int number)
+    {
+        if (number < 0)
+        {
+            throw new ArgumentException(
+                $"{nameof(number)} cannot be less than zero.");
+        }
+        return localFactorial(number);
+
+        int localFactorial(int localNumber)
+        {
+            if (localNumber == 0) return 1;
+            return localNumber * localFactorial(localNumber - 1);
+        }
+    }
+
     #endregion
     #region Deconstructors
 
