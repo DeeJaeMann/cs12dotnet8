@@ -314,11 +314,18 @@ WriteLine();
 AnimalClass ac1 = new() { Name = "Rex" };
 AnimalClass ac2 = new() { Name = "Rex" };
 
-WriteLine($"ac1 == ac2: {ac1 == ac2}");
+WriteLine($"ac1 == ac2: {ac1 == ac2}"); // Not equal, not same instance of object
 
 AnimalRecord ar1 = new() { Name = "Rex" };
 AnimalRecord ar2 = new() { Name = "Rex" };
 
-WriteLine($"ar1 == ar2: {ar1 == ar2}");
+WriteLine($"ar1 == ar2: {ar1 == ar2}"); // Equal, properties are the same
 
 WriteLine();
+
+ImmutableAnimal oscar = new("Oscar", "Labrador");
+var (who, what) = oscar;
+WriteLine($"{who} is a {what}.");
+
+WriteLine();
+
