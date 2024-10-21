@@ -329,3 +329,13 @@ WriteLine($"{who} is a {what}.");
 
 WriteLine();
 
+Headset vp = new("Apple", "Vision Pro");
+WriteLine($"{vp.ProductName} is made by {vp.Manufacturer}");
+
+Headset holo = new();
+WriteLine($"{holo.ProductName} is made by {holo.Manufacturer}.");
+
+Headset mq = new() { Manufacturer = "Meta", ProductName = "Quest 3" };
+WriteLine($"{mq.ProductName} is made by {mq.Manufacturer}.");
+
+WriteLine();
