@@ -1,4 +1,5 @@
-﻿using Packt.Shared;
+﻿using System.Security.Cryptography;
+using Packt.Shared;
 using PacktLibraryModern; // For Person
 // C# 12 aliasing tuples
 using Fruit = (string Name, int Number);
@@ -240,3 +241,29 @@ WriteLine($"Sam's second child is {sam[1].Name}.");
 
 // Get using string indexer
 WriteLine($"Sam's child named Ella is {sam["Ella"].Age} years old.");
+
+WriteLine();
+
+// Array containing a mix of passenger types
+Passenger[] passengers = {
+    new FirstClassPassenger { AirMiles = 1_419, Name = "Susan" },
+    new FirstClassPassenger { AirMiles = 16_562, Name = "Lucy" },
+    new BusinessClassPassenger { Name = "Janice" },
+    new CoachClassPassenger { CarryOnKg = 25.7, Name = "Dave" },
+    new CoachClassPassenger { CarryOnKg = 0, Name = "Amit" },
+};
+
+foreach (Passenger passenger in passengers)
+{
+    decimal flightCost = passenger switch
+    {
+        FirstClassPassenger p when p.AirMiles > 35_000 => 1_500M,
+        FirstClassPassenger p when p.AirMiles > 15_000 => 1_750M,
+        FirstClassPassenger _ => 2_000M,
+        BusinessClassPassenger _ => 1_000M,
+        CoachClassPassenger p when p.CarryOnKg < 10.0 => 500M,
+        CoachClassPassenger _ => 650M,
+        _ => 800M
+    };
+    WriteLine($"Flight costs {flightCost:C} for {passenger}");
+}
