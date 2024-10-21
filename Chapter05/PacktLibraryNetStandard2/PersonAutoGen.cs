@@ -73,4 +73,28 @@ public partial class Person
     }
 
 # endregion
+#region Indexers
+
+public Person this[int index]
+{
+    get
+    {
+        return Children[index];
+    }
+    set
+    {
+        Children[index] = value;
+    }
+}
+
+// Read-Only string indexer
+public Person this[string name]
+{
+    get
+    {
+        return Children.Find(p => p.Name == name);
+    }
+}
+
+#endregion
 }

@@ -219,3 +219,24 @@ catch (Exception ex)
 //bob.FavoriteAncientWonder = WondersOfTheAncientWorld.StatueOfZeusAtOlympia | WondersOfTheAncientWorld.GreatPyramidOfGiza;
 bob.FavoriteAncientWonder = WondersOfTheAncientWorld.StatueOfZeusAtOlympia;
 
+WriteLine();
+
+sam.Children.Add(new()
+{
+    Name = "Charlie",
+    Born = new(2010, 3, 18, 0, 0, 0, TimeSpan.Zero) });
+sam.Children.Add(new()
+{
+    Name = "Ella",
+    Born = new(2020, 12, 24, 0, 0, 0, TimeSpan.Zero) });
+
+// Get using Children List
+WriteLine($"Sam's first child is {sam.Children[0].Name}.");
+WriteLine($"Sam's second child is {sam.Children[1].Name}.");
+
+// Get using int indexer
+WriteLine($"Sam's first child is {sam[0].Name}.");
+WriteLine($"Sam's second child is {sam[1].Name}.");
+
+// Get using string indexer
+WriteLine($"Sam's child named Ella is {sam["Ella"].Age} years old.");
