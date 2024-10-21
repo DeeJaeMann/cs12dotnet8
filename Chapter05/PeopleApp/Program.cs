@@ -287,3 +287,11 @@ foreach (Passenger passenger in passengers)
 }
 
 WriteLine();
+
+ImmutablePerson jeff = new()
+{
+    FirstName = "Jeff",
+    LastName = "Winger"
+};
+// Causes compile error
+//jeff.FirstName = "Geoff";
