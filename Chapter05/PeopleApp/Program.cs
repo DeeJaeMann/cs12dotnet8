@@ -264,12 +264,20 @@ foreach (Passenger passenger in passengers)
         FirstClassPassenger _ => 2_000M, 
         */
         // C# 9 and Later
+        /*
         FirstClassPassenger p => p.AirMiles switch
         {
             > 35_000 => 1_500,
             > 15_000 => 1_750,
             _ => 2_000M
         },
+        */
+        // Can avoid nested switch using relational pattern in combo with property pattern
+        
+        FirstClassPassenger { AirMiles: > 35000 } => 1500M,
+        FirstClassPassenger { AirMiles: > 15000 } => 1750M,
+        FirstClassPassenger => 2000M,
+        
         BusinessClassPassenger _ => 1_000M,
         CoachClassPassenger p when p.CarryOnKg < 10.0 => 500M,
         CoachClassPassenger _ => 650M,
