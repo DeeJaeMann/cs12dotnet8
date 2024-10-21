@@ -257,9 +257,19 @@ foreach (Passenger passenger in passengers)
 {
     decimal flightCost = passenger switch
     {
+        // C# 8 Syntax
+        /*
         FirstClassPassenger p when p.AirMiles > 35_000 => 1_500M,
         FirstClassPassenger p when p.AirMiles > 15_000 => 1_750M,
-        FirstClassPassenger _ => 2_000M,
+        FirstClassPassenger _ => 2_000M, 
+        */
+        // C# 9 and Later
+        FirstClassPassenger p => p.AirMiles switch
+        {
+            > 35_000 => 1_500,
+            > 15_000 => 1_750,
+            _ => 2_000M
+        },
         BusinessClassPassenger _ => 1_000M,
         CoachClassPassenger p when p.CarryOnKg < 10.0 => 500M,
         CoachClassPassenger _ => 650M,
@@ -267,3 +277,5 @@ foreach (Passenger passenger in passengers)
     };
     WriteLine($"Flight costs {flightCost:C} for {passenger}");
 }
+
+WriteLine();
