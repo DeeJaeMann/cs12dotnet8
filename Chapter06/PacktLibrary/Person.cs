@@ -67,5 +67,43 @@ public class Person
         }
     }
 
+    /// <summary>
+    /// Static method to "multiply" aka procreate and have a child together.
+    /// </summary>
+    /// <param name="p1">Parent 1</param>
+    /// <param name="p2">Parent 2</param>
+    /// <returns>A Person object that is the child of Parent 1 and parent2.</returns>
+    /// <exception cref="ArgumentNullException">If p1 or p2 are null.</exception>
+    /// <exception cref="ArgumentException">If p1 and p2 are not married.</exception> 
+    public static Person Procreate(Person p1, Person p2)
+    {
+        ArgumentNullException.ThrowIfNull(p1);
+        ArgumentNullException.ThrowIfNull(p2);
+
+        if (!p1.Spouses.Contains(p2) && !p2.Spouses.Contains(p1))
+        {
+            throw new ArgumentException(string.Format(
+                "{0} must be married to {1} to procreate with them.",
+                arg0: p1.Name, arg1: p2.Name));
+        }
+
+        Person baby = new()
+        {
+            Name = $"Baby of {p1.Name} and {p2.Name}",
+            Born = DateTimeOffset.Now
+        };
+
+        p1.Children.Add(baby);
+        p2.Children.Add(baby);
+
+        return baby;
+    }
+
+    // Instance method to "multiply"
+    public Person ProcreateWith(Person partner)
+    {
+        return Procreate(this, partner);
+    }
+
     #endregion
 }
