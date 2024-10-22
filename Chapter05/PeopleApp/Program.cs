@@ -19,7 +19,7 @@ bob.FavoriteAncientWonder = WondersOfTheAncientWorld.StatueOfZeusAtOlympia;
 
 bob.BucketList =
     WondersOfTheAncientWorld.HangingGardensOfBabylon |
-    WondersOfTheAncientWorld.MausoleumAtHalicarnassus;
+    WondersOfTheAncientWorld.MausoleumAtHalicarnassus; //18 0b_0001_0010
 
 
 // Demonstrating different ways to add a Person object into Children

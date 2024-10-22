@@ -1,5 +1,6 @@
 ﻿namespace CalculatorLib;
 
+
 // This has a deliberate bug for unit testing purposes
 public class Calculator
 {
@@ -9,3 +10,4 @@ public class Calculator
         return a + b;
     }
 }
+
