@@ -1,6 +1,6 @@
 ﻿namespace Packt.Shared;
 
-public class Person
+public class Person : IComparable<Person?>
 {
     #region Properties
 
@@ -147,6 +147,46 @@ public class Person
         }
         // C# 6 and later can be simplified to:
         // Shout?.Invoke(this, EventArgs.Empty);
+    }
+
+    public int CompareTo(Person? other)
+    {
+        int position;
+
+        if (other is not null)
+        {
+            if ((Name is not null) && (other.Name is not null))
+            {
+                // If both values are not null, use string implemenation of CompareTo
+                position = Name.CompareTo(other.Name);
+            }
+            else if ((Name is not null) && (other.Name is null))
+            {
+                // This person preceded other person
+                position = -1;
+            }
+            else if ((Name is null) && (other.Name is not null))
+            {
+                // This person follows other person
+                position = 1;
+            }
+            else
+            {
+                // This person and other are same position
+                position = 0;
+            }
+        }
+        else if (other is null)
+        {
+            // This person preceded other person
+            position = -1;
+        }
+        else
+        {
+            // This and other are same position
+            position = 0;
+        }
+        return position;
     }
 
     #endregion
