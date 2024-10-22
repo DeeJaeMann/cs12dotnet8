@@ -125,4 +125,29 @@ public class Person
     }
 
     #endregion
+    #region Delegates
+
+    // DeLagte field to define event
+    public EventHandler? Shout;
+
+    // Data field for event
+    public int AngerLevel;
+
+    // Method to trigger event under certain conditions
+    public void Poke()
+    {
+        AngerLevel++;
+
+        if (AngerLevel < 3) return;
+
+        // If something is listening to the event
+        if (Shout is not null)
+        {
+            Shout(this, EventArgs.Empty);
+        }
+        // C# 6 and later can be simplified to:
+        // Shout?.Invoke(this, EventArgs.Empty);
+    }
+
+    #endregion
 }

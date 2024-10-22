@@ -92,3 +92,14 @@ key = 3;
 WriteLine(format: "Key {0} has value: {1}",
     arg0: key,
     arg1: lookupIntString[key]);
+
+WriteLine();
+
+// Assign method to Shout deLagate
+harry.Shout = Harry_Shout;
+
+// Call Poke method that will raise Shout event
+harry.Poke();
+harry.Poke();
+harry.Poke();
+harry.Poke();
