@@ -125,6 +125,14 @@ public class Person : IComparable<Person?>
     }
 
     #endregion
+    #region Overridden methods
+
+    public override string ToString()
+    {
+        return $"{Name} is a {base.ToString()}.";
+    }
+
+    #endregion
     #region Delegates
 
     // DeLagte field to define event
