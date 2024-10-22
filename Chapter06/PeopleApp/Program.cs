@@ -132,3 +132,21 @@ OutputPeopleNames(people,
     "After sorting using PersonComparer's IComparer implementation:");
 
 WriteLine();
+
+int a = 3;
+int b = 3;
+WriteLine($"a: {a}, b: {b}");
+WriteLine($"a == b: {a == b}");
+
+Person p1 = new() { Name = "Kevin" };
+Person p2 = new() { Name = "Kevin" };
+WriteLine($"p1: {p1}, p2: {p2}");
+WriteLine($"p1.Name: {p1.Name}, p2.Name: {p2.Name}");
+WriteLine($"p1 == p2: {p1 == p2}");
+
+Person p3 = p1;
+WriteLine($"p3: {p3}");
+WriteLine($"p3.Name: {p3.Name}");
+WriteLine($"p1 == p3: {p1 == p3}");
+
+WriteLine($"p1.Name == p2.Name: {p1.Name == p2.Name}");
