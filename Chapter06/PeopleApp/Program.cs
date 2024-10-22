@@ -194,3 +194,11 @@ aliceInEmployee.WriteToConsole();
 aliceInPerson.WriteToConsole();
 WriteLine(aliceInEmployee.ToString());
 WriteLine(aliceInPerson.ToString());
+
+WriteLine();
+
+if (aliceInPerson is Employee)
+{
+    WriteLine($"{nameof(aliceInPerson)} is an Employee.");
+    Employee explicitAlive = (Employee)aliceInPerson;
+}
