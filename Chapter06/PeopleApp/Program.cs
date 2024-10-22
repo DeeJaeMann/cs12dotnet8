@@ -165,3 +165,13 @@ WriteLine($"({dv4.X}, {dv4.Y})");
 DisplacementVector dv5 = new(3, 5);
 WriteLine($"dv1.Equals(dv5): {dv1.Equals(dv5)}");
 WriteLine($"dv1 == dv5: {dv1 == dv5}"); // Will not work as regular struct
+
+WriteLine();
+
+Employee john = new()
+{
+    Name = "John Jones",
+    Born = new(year: 1990, month: 7, day: 28,
+        hour: 0, minute: 0, second: 0, offset: TimeSpan.Zero)
+};
+john.WriteToConsole();
