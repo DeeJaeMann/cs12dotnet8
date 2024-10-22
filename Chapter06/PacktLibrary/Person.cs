@@ -15,6 +15,25 @@ public class Person
     public bool Married => Spouses.Count > 0;
 
     #endregion
+    #region Operators
+
+    // Define + operator to "marry"
+    public static bool operator +(Person p1, Person p2)
+    {
+        Marry(p1, p2);
+
+        // Confirm both are now married
+        return p1.Married && p2.Married;
+    }
+
+    // Define * operator to "multiply"
+    public static Person operator *(Person p1, Person p2)
+    {
+        // Return a ref to the baby that results from multiply
+        return Procreate(p1, p2);
+    }
+
+    #endregion
     #region Methods
 
     public void WriteToConsole()

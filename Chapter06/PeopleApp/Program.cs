@@ -20,7 +20,12 @@ Person zillah = new() { Name = "Zillah" };
 lamech.Marry(adah);
 
 // Using static method
-Person.Marry(lamech, zillah);
+//Person.Marry(lamech, zillah);
+
+if (lamech + zillah)
+{
+    WriteLine($"{lamech.Name} and {zillah.Name} successfully got married.");
+}
 
 lamech.OutputSpouses();
 adah.OutputSpouses();
@@ -34,6 +39,13 @@ WriteLine($"{baby1.Name} was born on {baby1.Born}");
 // Using static method
 Person baby2 = Person.Procreate(zillah, lamech);
 baby2.Name = "Tubalcain";
+
+// Use * operator
+Person baby3 = lamech * adah;
+baby3.Name = "Jubal";
+
+Person baby4 = zillah * lamech;
+baby4.Name = "Naamah";
 
 adah.WriteChildrenToConsole();
 zillah.WriteChildrenToConsole();
