@@ -95,8 +95,9 @@ WriteLine(format: "Key {0} has value: {1}",
 
 WriteLine();
 
-// Assign method to Shout deLagate
-harry.Shout = Harry_Shout;
+// Assign method to Shout event deLagate
+harry.Shout += Harry_Shout;
+harry.Shout += Harry_Shout_2;
 
 // Call Poke method that will raise Shout event
 harry.Poke();

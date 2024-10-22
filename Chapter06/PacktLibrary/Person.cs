@@ -128,7 +128,7 @@ public class Person
     #region Delegates
 
     // DeLagte field to define event
-    public EventHandler? Shout;
+    public event EventHandler? Shout;
 
     // Data field for event
     public int AngerLevel;
