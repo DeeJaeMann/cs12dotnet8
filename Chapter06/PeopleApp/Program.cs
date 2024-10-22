@@ -164,4 +164,4 @@ WriteLine($"({dv4.X}, {dv4.Y})");
 
 DisplacementVector dv5 = new(3, 5);
 WriteLine($"dv1.Equals(dv5): {dv1.Equals(dv5)}");
-//WriteLine($"dv1 == dv5: {dv1 == dv5}"); // Will not work
+WriteLine($"dv1 == dv5: {dv1 == dv5}"); // Will not work as regular struct
