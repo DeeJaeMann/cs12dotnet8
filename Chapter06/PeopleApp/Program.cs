@@ -200,5 +200,19 @@ WriteLine();
 if (aliceInPerson is Employee)
 {
     WriteLine($"{nameof(aliceInPerson)} is an Employee.");
-    Employee explicitAlive = (Employee)aliceInPerson;
+    Employee explicitAlice = (Employee)aliceInPerson;
+}
+
+// Can also use:
+/*
+if (aliceInPerson is Employee explicitAlice)
+{
+    WriteLine($"{nameof(aliceInPerson)} is an Employee");
+}
+*/
+
+Employee? aliceAsEmployee = aliceInPerson as Employee;
+if (aliceAsEmployee is not null)
+{
+    WriteLine($"{nameof(aliceInPerson)} as an Employee");
 }
