@@ -11,4 +11,9 @@ public class Employee : Person
             "{0} was born on {1:dd/MM/yy} and hired on {2:dd/MM/yy}.",
             arg0: Name, arg1: Born, arg2: HireDate);
     }
+
+    public override string ToString()
+    {
+        return $"{Name}'s code is {EmployeeCode}.";
+    }
 }

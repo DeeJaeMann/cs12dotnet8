@@ -40,3 +40,30 @@ public class FullyImplemented : PartiallyImplemented, ISsomeImplementation
         // Implementation
     }
 }
+
+// can instantiate FullyImplemented class
+// Cannot instantiate the child classes
+
+// Preventing inheritance
+public sealed class ScroogeMcDuck
+{
+
+}
+
+// Prevent overriding further
+public class Singer
+{
+    public virtual void Sing()
+    {
+        WriteLine("Singing...");
+    }
+}
+
+public class LadyGaga : Singer
+{
+    // cannot override further
+    public sealed override void Sing()
+    {
+        WriteLine("Singing with style...");
+    }
+}
