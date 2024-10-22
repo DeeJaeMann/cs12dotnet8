@@ -123,3 +123,12 @@ Array.Sort(people);
 
 OutputPeopleNames(people,
     "After sorting using Person's IComparable implementation:");
+
+WriteLine();
+
+Array.Sort(people, new PersonComparer());
+
+OutputPeopleNames(people,
+    "After sorting using PersonComparer's IComparer implementation:");
+
+WriteLine();
