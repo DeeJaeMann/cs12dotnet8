@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedLibrary", "SharedLibr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlSDK", "ControlSDK\ControlSDK.csproj", "{C7B0D1DF-D8ED-4419-8039-47E1C75CEE3E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetEverywhere", "DotNetEverywhere\DotNetEverywhere.csproj", "{4977B2E7-BDBE-43C6-97AB-0BB1BA4B14E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{C7B0D1DF-D8ED-4419-8039-47E1C75CEE3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7B0D1DF-D8ED-4419-8039-47E1C75CEE3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7B0D1DF-D8ED-4419-8039-47E1C75CEE3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4977B2E7-BDBE-43C6-97AB-0BB1BA4B14E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4977B2E7-BDBE-43C6-97AB-0BB1BA4B14E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4977B2E7-BDBE-43C6-97AB-0BB1BA4B14E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4977B2E7-BDBE-43C6-97AB-0BB1BA4B14E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
