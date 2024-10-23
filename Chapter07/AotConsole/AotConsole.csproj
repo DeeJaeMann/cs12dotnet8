@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Using Include="System.Console" Status="true" />
+    <Using Include="System.Console" Static="true" />
   </ItemGroup>
 
 </Project>
