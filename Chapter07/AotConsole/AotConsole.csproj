@@ -9,4 +9,8 @@
     <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Using Include="System.Console" Status="true" />
+  </ItemGroup>
+
 </Project>
