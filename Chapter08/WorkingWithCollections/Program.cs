@@ -78,3 +78,26 @@ foreach (string name in new[] { "Adam", "Barry", "Charlie", "Barry" })
 }
 
 WriteLine($"names set: {string.Join(',', names)}.");
+
+WriteLine();
+
+Queue<string> coffee = new();
+
+coffee.Enqueue("Damir");
+coffee.Enqueue("Andrea");
+coffee.Enqueue("Ronald");
+coffee.Enqueue("Amin");
+coffee.Enqueue("Irina");
+
+OutputCollection("Initial queue from front to back", coffee);
+
+// Handle next person in queue
+string served = coffee.Dequeue();
+WriteLine($"Served: {served}");
+
+served = coffee.Dequeue();
+WriteLine($"Served: {served}");
+
+OutputCollection("Current queue from front to back", coffee);
+WriteLine($"{coffee.Peek()} is next in line");
+OutputCollection("Current queue from front to back", coffee);
