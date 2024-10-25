@@ -101,3 +101,30 @@ WriteLine($"Served: {served}");
 OutputCollection("Current queue from front to back", coffee);
 WriteLine($"{coffee.Peek()} is next in line");
 OutputCollection("Current queue from front to back", coffee);
+
+WriteLine();
+
+PriorityQueue<string, int> vaccine = new();
+
+// Add some people
+// 1 = High priority people in their 70s or poor health
+// 2 = Medium priority middle-aged
+// 3 = Low priority teens and twenties
+vaccine.Enqueue("Pamela", 1);
+vaccine.Enqueue("Rebecca", 3);
+vaccine.Enqueue("Juliet", 2);
+vaccine.Enqueue("Ian", 1);
+
+OutputPQ("Current queue for vaccination", vaccine.UnorderedItems);
+
+WriteLine($"{vaccine.Dequeue()} has been vaccinated.");
+WriteLine($"{vaccine.Dequeue()} has been vaccinated.");
+OutputPQ("Current queue for vaccination", vaccine.UnorderedItems);
+
+WriteLine($"{vaccine.Dequeue()} has been vaccinated.");
+
+WriteLine("Adding Mark to queue with priority 2.");
+vaccine.Enqueue("Mark", 2);
+
+WriteLine($"{vaccine.Peek()} will be next to be vaccinated.");
+OutputPQ("Current queue for vaccination", vaccine.UnorderedItems);
