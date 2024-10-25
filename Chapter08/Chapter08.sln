@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithText", "WorkingW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithRegEx", "WorkingWithRegEx\WorkingWithRegEx.csproj", "{6F7A6C26-3711-4A5B-AFB9-21E4EDDDB12B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithCollections", "WorkingWithCollections\WorkingWithCollections.csproj", "{81C1027D-059D-4431-AC25-6E44A14F887B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{6F7A6C26-3711-4A5B-AFB9-21E4EDDDB12B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F7A6C26-3711-4A5B-AFB9-21E4EDDDB12B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F7A6C26-3711-4A5B-AFB9-21E4EDDDB12B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81C1027D-059D-4431-AC25-6E44A14F887B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C1027D-059D-4431-AC25-6E44A14F887B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81C1027D-059D-4431-AC25-6E44A14F887B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81C1027D-059D-4431-AC25-6E44A14F887B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
