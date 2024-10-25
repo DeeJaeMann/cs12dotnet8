@@ -66,3 +66,15 @@ foreach (KeyValuePair<string, string> item in keywords)
 // Look up value using key
 string key = "long";
 WriteLine($"The definition of {key} is {keywords[key]}");
+
+WriteLine();
+
+HashSet<string> names = new();
+
+foreach (string name in new[] { "Adam", "Barry", "Charlie", "Barry" })
+{
+    bool added = names.Add(name);
+    WriteLine($"{name} was added: {added}");
+}
+
+WriteLine($"names set: {string.Join(',', names)}.");
