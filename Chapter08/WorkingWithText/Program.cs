@@ -74,3 +74,19 @@ WriteLine("Compare (ignoreCase): {0}",
 
 WriteLine("Compare (InvariantCultureIgnoreCase): {0}.",
     string.Compare(text1, text2, StringComparison.InvariantCultureIgnoreCase));
+
+WriteLine();
+
+string recombined = string.Join(" => ", citiesArray);
+WriteLine(recombined);
+
+WriteLine();
+
+string fruit = "Apples";
+decimal price = 0.39M;
+DateTime when = DateTime.Today;
+
+WriteLine($"Interpolated: {fruit} cost {price:C} on {when:dddd}.");
+// Don't need to specify string.Format()
+WriteLine(string.Format("string.Format: {0} cost {1:C} on {2:dddd}.",
+    arg0: fruit, arg1: price, arg2: when));
