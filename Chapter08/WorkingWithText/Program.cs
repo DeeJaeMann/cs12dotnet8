@@ -1,4 +1,5 @@
-﻿using System.Globalization; // For CultureInfo
+﻿using System.Globalization;
+using System.Text; // For CultureInfo
 
 OutputEncoding = System.Text.Encoding.UTF8; // Enable Euro symbol
 
@@ -90,3 +91,13 @@ WriteLine($"Interpolated: {fruit} cost {price:C} on {when:dddd}.");
 // Don't need to specify string.Format()
 WriteLine(string.Format("string.Format: {0} cost {1:C} on {2:dddd}.",
     arg0: fruit, arg1: price, arg2: when));
+
+WriteLine();
+
+StringBuilder sb = new("ABC", 50);
+sb.Append(new char[] { 'D', 'E', 'F' });
+sb.AppendFormat("GHI{0}{1}", 'J', 'k');
+WriteLine("{0} chars: {1}", sb.Length, sb.ToString());
+sb.Insert(0, "Alphabet: ");
+sb.Replace('k', 'K');
+WriteLine("{0} chars: {1}", sb.Length, sb.ToString());
