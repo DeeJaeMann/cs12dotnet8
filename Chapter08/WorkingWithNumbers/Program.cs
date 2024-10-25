@@ -46,3 +46,24 @@ for (int i = 0; i < arrayOfBytes.Length; i++)
     Write($"{arrayOfBytes[i]:X2} ");
 }
 WriteLine();
+WriteLine();
+
+string[] beatles = r.GetItems(
+    choices: new[] { "John", "Paul", "George", "Ringo" },
+    length: 10);
+
+Write("Random ten beatles:");
+foreach (string beatle in beatles)
+{
+    Write($" {beatle}");
+}
+WriteLine();
+
+r.Shuffle(beatles);
+
+Write("Shuffled beatles:");
+foreach (string beatle in beatles)
+{
+    Write($" {beatle}");
+}
+WriteLine();
