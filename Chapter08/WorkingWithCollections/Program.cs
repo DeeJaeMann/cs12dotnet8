@@ -1,5 +1,6 @@
 ﻿//Define alias for a dictionary with string key and string value
 using StringDictionary = System.Collections.Generic.Dictionary<string, string>;
+//Test message for commit
 
 // Simple syntax for creating a list and adding 3 items
 List<string> cities = new();
