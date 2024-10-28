@@ -1,6 +1,5 @@
 ﻿//Define alias for a dictionary with string key and string value
 using StringDictionary = System.Collections.Generic.Dictionary<string, string>;
-// Testing again
 
 // Simple syntax for creating a list and adding 3 items
 List<string> cities = new();
