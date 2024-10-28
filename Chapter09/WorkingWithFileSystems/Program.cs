@@ -27,6 +27,8 @@ table.AddRow("  .Personal)", GetFolderPath(SpecialFolder.Personal));
 // Render the table to the console
 AnsiConsole.Write(table);
 
+WriteLine();
+
 SectionTitle("Managing drives");
 
 Table drives = new();
@@ -63,5 +65,27 @@ foreach (DriveInfo drive in DriveInfo.GetDrives())
 
 
 AnsiConsole.Write(drives);
+
+WriteLine();
+
+SectionTitle("Managing directories");
+
+string newFolder = Combine(
+    GetFolderPath(SpecialFolder.Personal), "NewFolder");
+
+WriteLine($"Working with: {newFolder}");
+
+WriteLine($"Does it exist? {Path.Exists(newFolder)}");
+
+WriteLine("Creating it...");
+CreateDirectory(newFolder);
+
+WriteLine($"Does it exist? {Directory.Exists(newFolder)}");
+Write("Confirm the directory exists, and then press any key.");
+ReadKey(intercept: true);
+
+WriteLine("Deleting it...");
+Delete(newFolder, recursive: true);
+WriteLine($"Does it exist? {Path.Exists(newFolder)}");
 
 #endregion
