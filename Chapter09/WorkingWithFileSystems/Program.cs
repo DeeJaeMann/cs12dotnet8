@@ -41,18 +41,26 @@ drives.AddColumn(new TableColumn(
 
 foreach (DriveInfo drive in DriveInfo.GetDrives())
 {
-    if (drive.IsReady)
+    try
     {
-        drives.AddRow(drive.Name, drive.DriveType.ToString(),
-            drive.DriveFormat, drive.TotalSize.ToString("N0"),
-            drive.AvailableFreeSpace.ToString("N0"));
+        if (drive.IsReady)
+        {
+            drives.AddRow(drive.Name, drive.DriveType.ToString(),
+                drive.DriveFormat, drive.TotalSize.ToString("N0"),
+                drive.AvailableFreeSpace.ToString("N0"));
+        }
+        else
+        {
+            drives.AddRow(drive.Name, drive.DriveType.ToString(),
+                string.Empty, string.Empty, string.Empty);
+        }
     }
-    else
+    catch (Exception e)
     {
-        drives.AddRow(drive.Name, drive.DriveType.ToString(),
-            string.Empty, string.Empty, string.Empty);
+        drives.AddRow(drive.Name, e.Message, string.Empty, string.Empty, string.Empty);
     }
 }
+
 
 AnsiConsole.Write(drives);
 
