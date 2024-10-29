@@ -1,4 +1,6 @@
-﻿using System.Xml;
+﻿using System.IO.Compression;
+using System.Security.Cryptography;
+using System.Xml;
 using Packt.Shared;
 
 SectionTitle("Writing to text streams");
@@ -93,3 +95,9 @@ catch (Exception ex)
 {
     WriteLine($"{ex.GetType()} says {ex.Message}");
 }
+
+// Compressing streams
+
+SectionTitle("Compressing streams:");
+Compress(algorithm: "gzip");
+Compress(algorithm: "brotli");
