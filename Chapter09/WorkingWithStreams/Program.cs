@@ -83,13 +83,13 @@ using (FileStream file2 = File.OpenWrite(
 using FileStream file3 = File.OpenWrite(
     Path.Combine(CurrentDirectory, "streams3.txt"));
     
-    using StreamWriter writer3 = new(file3);
+using StreamWriter writer3 = new(file3);
 
-    try
-    {
-        writer3.WriteLine("Welcome, .NET!");
-    }
-    catch (Exception ex)
-    {
-        WriteLine($"{ex.GetType()} says {ex.Message}");
-    }
+try
+{
+    writer3.WriteLine("Welcome, .NET!");
+}
+catch (Exception ex)
+{
+    WriteLine($"{ex.GetType()} says {ex.Message}");
+}
