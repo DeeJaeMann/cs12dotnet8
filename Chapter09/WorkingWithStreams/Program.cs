@@ -61,3 +61,35 @@ finally
 }
 
 OutputFileInfo(xmlFile);
+
+// Simplify disposal with using statement
+using (FileStream file2 = File.OpenWrite(
+           Path.Combine(CurrentDirectory, "streams2.txt")))
+{
+    using (StreamWriter writer2 = new StreamWriter(file2))
+    {
+        try
+        {
+            writer2.WriteLine("Welcome, .NET!");
+        }
+        catch (Exception ex)
+        {
+            WriteLine($"{ex.GetType()} says {ex.Message}");
+        }
+    } // Calls Dispose if object not null
+} // Calls Dispose if object not null
+
+// Further simplification
+using FileStream file3 = File.OpenWrite(
+    Path.Combine(CurrentDirectory, "streams3.txt"));
+    
+    using StreamWriter writer3 = new(file3);
+
+    try
+    {
+        writer3.WriteLine("Welcome, .NET!");
+    }
+    catch (Exception ex)
+    {
+        WriteLine($"{ex.GetType()} says {ex.Message}");
+    }
