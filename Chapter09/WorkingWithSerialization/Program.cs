@@ -64,3 +64,18 @@ using (FileStream xmlLoad = File.Open(path, FileMode.Open))
         }
     }
 }
+
+SectionTitle("Serializing with JSON");
+
+// Create a file to write to
+string jsonPath = Combine(CurrentDirectory, "people.json");
+
+using (StreamWriter jsonStream = File.CreateText(jsonPath))
+{
+    Newtonsoft.Json.JsonSerializer jss = new();
+    
+    // Serialize object into string
+    jss.Serialize(jsonStream, people);
+}
+
+OutputFileInfo(jsonPath);
