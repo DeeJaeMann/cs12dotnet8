@@ -2,6 +2,8 @@ namespace Packt.Shared;
 
 public class Person
 {
+    // Parameterless constructor required for XML serialization
+    public Person() {}
     public Person(decimal initialSalary)
     {
         Salary = initialSalary;
