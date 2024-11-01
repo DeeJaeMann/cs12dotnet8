@@ -1,3 +1,13 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿SectionTitle("Reading all environment variables for process");
+IDictionary vars = GetEnvironmentVariables();
+DictionaryToTable(vars);
 
-Console.WriteLine("Hello, World!");
+SectionTitle("Reading all environment variables for machine");
+IDictionary varsMachine = GetEnvironmentVariables(
+    EnvironmentVariableTarget.Machine);
+DictionaryToTable(varsMachine);
+
+SectionTitle("Reading all environment variables for user");
+IDictionary varsUser = GetEnvironmentVariables(
+    EnvironmentVariableTarget.User);
+DictionaryToTable(varsUser);
