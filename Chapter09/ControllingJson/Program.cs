@@ -34,3 +34,4 @@ WriteLine($"Size: {new FileInfo(path).Length:N0} bytes");
 WriteLine("/----------");
 WriteLine(File.ReadAllText(path));
 WriteLine("----------/");
+
