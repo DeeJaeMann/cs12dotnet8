@@ -24,6 +24,7 @@ partial class Program
             catch (Exception ex)
             {
                 table.AddRow(key, ex.Message);
+                WriteLine($"{key} - {dictionary[key]}");
             }
         }
         
