@@ -8,3 +8,4 @@ WriteLine($"Provider: {db.Database.ProviderName}");
 ConfigureConsole();
 QueryingCategories();
 FilteredIncludes();
+QueryingProducts();

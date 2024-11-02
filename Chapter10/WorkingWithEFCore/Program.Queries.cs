@@ -61,6 +61,38 @@ partial class Program
                 WriteLine($"  {p.ProductName} has {p.Stock} units in stock.");
             }
         }
+    }
+
+    private static void QueryingProducts()
+    {
+        using NorthwindDb db = new();
         
+        SectionTitle("Products that cost more than a price, highest at top");
+
+        string? input;
+        decimal price;
+
+        do
+        {
+            Write("Enter a product price: ");
+            input = ReadLine();
+        } while (!decimal.TryParse(input, out price));
+        
+        IQueryable<Product>? products = db.Products?
+            .Where(product => product.Cost > price)
+            .OrderByDescending(product => product.Cost);
+
+        if (products is null || !products.Any())
+        {
+            Fail("No products found");
+            return;
+        }
+
+        foreach (Product p in products)
+        {
+            WriteLine(
+                "{0}: {1} costs {2:$#,##0.00} and has {3} in stock.",
+                p.ProductId, p.ProductName, p.Cost, p.Stock);
+        }
     }
 } 
