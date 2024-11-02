@@ -1,5 +1,5 @@
 ﻿namespace Northwind.EntityModels;
 
-public class Class1
+public class Category
 {
 }
