@@ -49,6 +49,8 @@ partial class Program
             Fail("No categories found");
             return;
         }
+        
+        Info($"ToQueryString: {categories.ToQueryString()}");
 
         foreach (Category c in categories)
         {
@@ -87,6 +89,8 @@ partial class Program
             Fail("No products found");
             return;
         }
+        
+        Info($"ToQueryString: {products.ToQueryString()}");
 
         foreach (Product p in products)
         {
