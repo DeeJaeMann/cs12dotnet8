@@ -16,7 +16,7 @@ public class Product
     [Column("UnitsInStock")]
     public short? Stock { get; set; }
     
-    public bool Discountinued { get; set; }
+    public bool Discontinued { get; set; }
     
     // These two properties define the foreign key relationship
     // to the Categories table
