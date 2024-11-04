@@ -9,4 +9,5 @@ ConfigureConsole();
 //QueryingCategories();
 //FilteredIncludes();
 //QueryingProducts();
-GettingOneProduct();
+//GettingOneProduct();
+QueryingWithLike();
