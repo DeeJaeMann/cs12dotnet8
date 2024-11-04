@@ -15,6 +15,14 @@ public class NorthwindDb : DbContext
         string connectionString = $"Data Source={path}";
         WriteLine($"Connection: {connectionString}");
         optionsBuilder.UseSqlite(connectionString);
+        
+        // Adding logging statements
+        optionsBuilder.LogTo(WriteLine)
+#if DEBUG
+            .EnableSensitiveDataLogging()
+            .EnableDetailedErrors()
+#endif
+            ;
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
