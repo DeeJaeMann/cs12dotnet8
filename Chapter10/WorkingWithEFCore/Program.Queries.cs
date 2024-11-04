@@ -81,6 +81,8 @@ partial class Program
         } while (!decimal.TryParse(input, out price));
         
         IQueryable<Product>? products = db.Products?
+            // LINQ query annotation
+            .TagWith("Products filtered by price and sorted")
             .Where(product => product.Cost > price)
             .OrderByDescending(product => product.Cost);
 
