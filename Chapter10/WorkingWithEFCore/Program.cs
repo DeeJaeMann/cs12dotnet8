@@ -10,4 +10,5 @@ ConfigureConsole();
 //FilteredIncludes();
 //QueryingProducts();
 //GettingOneProduct();
-QueryingWithLike();
+//QueryingWithLike();
+GetRandomProduct();
