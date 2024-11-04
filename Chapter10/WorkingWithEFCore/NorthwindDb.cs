@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics; // For RelationalEventId
 
 namespace Northwind.EntityModels;
 
@@ -16,8 +17,13 @@ public class NorthwindDb : DbContext
         WriteLine($"Connection: {connectionString}");
         optionsBuilder.UseSqlite(connectionString);
         
-        // Adding logging statements
-        optionsBuilder.LogTo(WriteLine)
+        // Adding logging statements to console
+        // All results
+        /*
+         * optionsBuilder.LogTo(WriteLine)
+         */
+        optionsBuilder.LogTo(WriteLine,
+            new[] { RelationalEventId.CommandExecuting }) // To filter results by provider specific values
 #if DEBUG
             .EnableSensitiveDataLogging()
             .EnableDetailedErrors()
