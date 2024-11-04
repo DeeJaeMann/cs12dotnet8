@@ -101,4 +101,34 @@ partial class Program
                 p.ProductId, p.ProductName, p.Cost, p.Stock);
         }
     }
+
+    private static void GettingOneProduct()
+    {
+        using NorthwindDb db = new();
+        
+        SectionTitle("Getting a single product");
+
+        string? input;
+        int id;
+
+        do
+        {
+            Write("Enter a product ID: ");
+            input = ReadLine();
+        } while (!int.TryParse(input, out id));
+        
+        Product? product = db.Products?
+            .First(product => product.ProductId == id);
+        
+        Info($"First: {product?.ProductName}");
+        
+        if (product is null) Fail("No product found using First.");
+
+        product = db.Products?
+            .Single(product => product.ProductId == id);
+
+        Info($"Single: {product?.ProductName}");
+        
+        if (product is null) Fail("No product found using Single.");
+    }
 } 
