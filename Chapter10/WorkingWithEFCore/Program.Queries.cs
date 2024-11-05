@@ -169,7 +169,7 @@ partial class Program
         if (product is null) Fail("No product found using First.");
 
         product = db.Products?
-            .Single(product => product.ProductId == id);
+            .Single(p => p.ProductId == id);
 
         Info($"Single: {product?.ProductName}");
         
