@@ -98,4 +98,24 @@ partial class Program
         int affected = db.SaveChanges();
         return affected;
     }
+
+    private static (int affected, int[]? productIds) IncreaseProductPricesBetter(
+            string productNameStartsWith, decimal amount)
+    {
+        using NorthwindDb db = new();
+
+        if (db.Products is null) return (0, null);
+        
+        // Get products whose names start with the param value
+        IQueryable<Product>? products = db.Products.Where(
+            p => p.ProductName.StartsWith(productNameStartsWith));
+
+        int affected = products.ExecuteUpdate(s => s.SetProperty(
+            p => p.Cost,
+            p => p.Cost + amount));
+
+        int[] productIds = products.Select(p => p.ProductId).ToArray();
+
+        return (affected, productIds);
+    }
 }
