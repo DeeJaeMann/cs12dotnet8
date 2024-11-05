@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics; // For RelationalEventId
 
+
 namespace Northwind.EntityModels;
 
 // manages interactions with Northwind database

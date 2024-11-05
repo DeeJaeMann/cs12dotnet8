@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore; // For Include
 using Northwind.EntityModels; // For Northwind, Category, Product
+using Microsoft.EntityFrameworkCore.ChangeTracking; // For CollectionEntry
 
 partial class Program
 {
@@ -10,9 +11,37 @@ partial class Program
         SectionTitle("Categories and how many products they have");
         
         // Query to get all categories and related products
-        IQueryable<Category>? categories = db.Categories; //?
-            //.Include(c => c.Products);
+        /* Default example
+        IQueryable<Category>? categories = db.Categories?
+            .Include(c => c.Products);
+        */
+        // Modified for alternate loading examples
+        IQueryable<Category>? categories;
+        // Using Lazy Loading
+        /*
+         *  IQueryable<Category>? categories = db.Categories;
+         */
+        
+        // Add logic to prompt for loading option
+        db.ChangeTracker.LazyLoadingEnabled = false;
+        
+        Write("Enable eager loading? (Y/N): ");
+        bool eagerLoading = ReadKey().Key == ConsoleKey.Y;
+        bool explicitLoading = false;
+        WriteLine();
 
+        if (eagerLoading)
+        {
+            categories = db.Categories?.Include(c => c.Products);
+        }
+        else
+        {
+            categories = db.Categories;
+            Write("Enable explicit loading? (Y/N): ");
+            explicitLoading = ReadKey().Key == ConsoleKey.Y;
+            WriteLine();
+        }
+        
         if (categories is null || !categories.Any())
         {
             Fail("No categories found");
@@ -22,6 +51,21 @@ partial class Program
         // Execute query and enumerate results
         foreach (Category c in categories)
         {
+            // Check if explicit loading is enabled
+            if (explicitLoading)
+            {
+                Write($"Explicitly load products for {c.CategoryName}? (Y/N): ");
+                ConsoleKeyInfo key = ReadKey();
+                WriteLine();
+
+                if (key.Key == ConsoleKey.Y)
+                {
+                    CollectionEntry<Category, Product> products =
+                        db.Entry(c).Collection(c2 => c2.Products);
+
+                    if (!products.IsLoaded) products.Load();
+                }
+            }
             WriteLine($"{c.CategoryName} has {c.Products.Count} products.");
         }
     }
