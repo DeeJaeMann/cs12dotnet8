@@ -233,4 +233,28 @@ partial class Program
         
         WriteLine($"Random product: {p.ProductId} - {p.ProductName}");
     }
+
+    // Using NoTracking can/will add duplicates
+    // Can be very memory intensive
+    // LazyLoading can execute many SQL transactions
+    private static void LazyLoadingWithNoTracking()
+    {
+        using NorthwindDb db = new();
+        
+        SectionTitle("Lazy-loading with no tracking");
+
+        IQueryable<Product>? products = db.Products?.AsNoTracking();
+
+        if (products is null || !products.Any())
+        {
+            Fail("No products found.");
+            return;
+        }
+
+        foreach (Product p in products)
+        {
+            WriteLine("{0} is in category named {1}.",
+                p.ProductName, p.Category.CategoryName);
+        }
+    }
 } 
