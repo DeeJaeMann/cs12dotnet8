@@ -6,9 +6,9 @@ WriteLine($"Provider: {db.Database.ProviderName}");
 */
 
 ConfigureConsole();
-//QueryingCategories();
+QueryingCategories();
 //FilteredIncludes();
 //QueryingProducts();
 //GettingOneProduct();
-QueryingWithLike();
+//QueryingWithLike();
 //GetRandomProduct();

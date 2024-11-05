@@ -29,6 +29,8 @@ public class NorthwindDb : DbContext
             .EnableDetailedErrors()
 #endif
             ;
+        // Use lazy loading
+        optionsBuilder.UseLazyLoadingProxies();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -10,8 +10,8 @@ partial class Program
         SectionTitle("Categories and how many products they have");
         
         // Query to get all categories and related products
-        IQueryable<Category>? categories = db.Categories?
-            .Include(c => c.Products);
+        IQueryable<Category>? categories = db.Categories; //?
+            //.Include(c => c.Products);
 
         if (categories is null || !categories.Any())
         {
