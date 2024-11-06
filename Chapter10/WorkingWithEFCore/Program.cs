@@ -55,6 +55,7 @@ else
 */
 
 // Alternate update product demo
+/*
 var resultUpdateBetter = IncreaseProductPricesBetter(
     productNameStartsWith: "Bob", amount: 20M);
 
@@ -64,3 +65,16 @@ if (resultUpdateBetter.affected > 0)
 }
 
 ListProducts(productIdsToHighlight: resultUpdateBetter.productIds);
+*/
+
+WriteLine("About to delete all products whose name starts with Bob.");
+Write("Press Enter to continue or any other key to exit: ");
+if (ReadKey(intercept: true).Key == ConsoleKey.Enter)
+{
+    int deleted = DeleteProductsBetter(productNameStartsWith: "Bob");
+    WriteLine($"{deleted} product(s) were deleted.");
+}
+else
+{
+    WriteLine("Delete was canceled");
+}
