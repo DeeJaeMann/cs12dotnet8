@@ -31,8 +31,12 @@ partial class Program
     {
         SectionTitle("Filtering entities using Where");
 
-        var query = names.Where(new Func<string, bool>(NameLongerThanFour));
-
+        // Explicitly creating the required delegate
+        //var query = names.Where(new Func<string, bool>(NameLongerThanFour));
+        
+        // Compiler creates delegate automatically
+        var query = names.Where(NameLongerThanFour);
+        
         foreach (string item in query)
         {
             WriteLine(item);
