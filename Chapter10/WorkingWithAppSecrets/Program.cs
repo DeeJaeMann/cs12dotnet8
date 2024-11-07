@@ -1,3 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using Microsoft.Extensions.Configuration;
 
-Console.WriteLine("Hello, World!");
+var config = new ConfigurationBuilder()
+    .AddUserSecrets<Program>()
+    .Build();
+    
+    WriteLine($"Hello, {config["Name"]}");
