@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore; // For ExecuteUpdate, ExecuteDelete
 using Microsoft.EntityFrameworkCore.ChangeTracking; // For EntityEntry<T>
+using Microsoft.EntityFrameworkCore.Storage; // For IDbContextTransaction
 using Northwind.EntityModels;
 
 partial class Program
@@ -79,6 +80,7 @@ partial class Program
 
     private static int DeleteProducts(string productNameStartsWith)
     {
+        /*
         using NorthwindDb db = new();
 
         IQueryable<Product>? products = db.Products?.Where(
@@ -97,6 +99,33 @@ partial class Program
 
         int affected = db.SaveChanges();
         return affected;
+        */
+        // Using transactions
+        using (NorthwindDb db = new())
+        {
+            using (IDbContextTransaction t = db.Database.BeginTransaction())
+            {
+                WriteLine("Transaction isolation level: {0}",
+                    arg0: t.GetDbTransaction().IsolationLevel);
+                
+                IQueryable<Product>? products = db.Products?.Where(
+                    p => p.ProductName.StartsWith(productNameStartsWith));
+
+                if (products is null || !products.Any())
+                {
+                    WriteLine("No products found to delete.");
+                    return 0;
+                }
+                else
+                {
+                    db.Products.RemoveRange(products);
+                }
+
+                int affected = db.SaveChanges();
+                t.Commit();
+                return affected;
+            }
+        }
     }
 
     private static (int affected, int[]? productIds) IncreaseProductPricesBetter(

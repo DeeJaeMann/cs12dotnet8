@@ -40,7 +40,7 @@ ListProducts(productIdsToHighlight: new[] { resultUpdate.productId });
 */
 
 // Delete product demo
-/*
+
 WriteLine("About to delete all products whose name starts with Bob.");
 Write("Press Enter to continue or any other key to exit: ");
 if (ReadKey(intercept: true).Key == ConsoleKey.Enter)
@@ -52,7 +52,7 @@ else
 {
     WriteLine("Delete was canceled.");
 }
-*/
+
 
 // Alternate update product demo
 /*
@@ -67,6 +67,8 @@ if (resultUpdateBetter.affected > 0)
 ListProducts(productIdsToHighlight: resultUpdateBetter.productIds);
 */
 
+
+// Alternate delete product demo
 WriteLine("About to delete all products whose name starts with Bob.");
 Write("Press Enter to continue or any other key to exit: ");
 if (ReadKey(intercept: true).Key == ConsoleKey.Enter)
