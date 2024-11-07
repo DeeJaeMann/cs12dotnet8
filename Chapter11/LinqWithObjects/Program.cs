@@ -1,3 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿// A string array is a sequence that implements IEnumerable<string>
+string[] names = { "Michael", "Pam", "Jim", "Dwight", "Angela", "Kevin", "Toby", "Creed" };
 
-Console.WriteLine("Hello, World!");
+DeferredExecution(names);
