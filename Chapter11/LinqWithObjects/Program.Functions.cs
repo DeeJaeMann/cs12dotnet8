@@ -26,4 +26,21 @@ partial class Program
             // On second iteration Jimmy does not end with M so it does not get output
         }
     }
+
+    private static void FilteringUsingWhere(string[] names)
+    {
+        SectionTitle("Filtering entities using Where");
+
+        var query = names.Where(new Func<string, bool>(NameLongerThanFour));
+
+        foreach (string item in query)
+        {
+            WriteLine(item);
+        }
+    }
+
+    private static bool NameLongerThanFour(string name)
+    {
+        return name.Length > 4;
+    }
 }
