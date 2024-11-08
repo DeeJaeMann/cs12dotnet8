@@ -6,11 +6,11 @@ partial class Program
         
         // Question: Which names end with an M?
         // (using a LINQ expression method)
-        var query1 = names.Where(name => name.EndsWith('m'));
+        IEnumerable<string> query1 = names.Where(name => name.EndsWith('m'));
         
         // Question: Which names end with an M?
         // (using LINQ query comprehension syntax)
-        var query2 = from name in names where name.EndsWith('m') select name;
+        IEnumerable<string> query2 = from name in names where name.EndsWith('m') select name;
         
         // Answer returned as an array of strings containing Pam and Jim
         string[] result1 = query1.ToArray();
@@ -38,9 +38,10 @@ partial class Program
         //var query = names.Where(NameLongerThanFour);
         
         // Using Lambda expression instead of named method
-        var query = names
+        IOrderedEnumerable<string> query = names
             .Where(name => name.Length > 4)
-            .OrderBy(name => name.Length);
+            .OrderBy(name => name.Length)
+            .ThenBy(name => name);
         
         foreach (string item in query)
         {
