@@ -38,7 +38,9 @@ partial class Program
         //var query = names.Where(NameLongerThanFour);
         
         // Using Lambda expression instead of named method
-        var query = names.Where(name => name.Length > 4);
+        var query = names
+            .Where(name => name.Length > 4)
+            .OrderBy(name => name.Length);
         
         foreach (string item in query)
         {
