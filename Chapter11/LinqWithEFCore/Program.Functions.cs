@@ -17,6 +17,7 @@ partial class Program
             filteredProducts.OrderByDescending(product => product.UnitPrice);
         
         WriteLine("Products that cost less than $10:");
+        WriteLine(sortedAndFilteredProducts.ToQueryString());
 
         foreach (Product p in sortedAndFilteredProducts)
         {
