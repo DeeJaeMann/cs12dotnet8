@@ -45,4 +45,25 @@ partial class Program
 
         WriteLine();
     }
+
+    private static void JoinCategoriesAndProducts()
+    {
+        SectionTitle("Join categories and proeucts");
+
+        using NorthwindDb db = new();
+        
+        // Join every product to its category to return 77 matches
+        var queryJoin = db.Categories.Join(
+            inner: db.Products,
+            outerKeySelector: category => category.CategoryId,
+            innerKeySelector: product => product.CategoryId,
+            resultSelector: (c, p) =>
+                new { c.CategoryName, p.ProductName, p.ProductId })
+            .OrderBy(cp => cp.CategoryName);
+
+        foreach (var p in queryJoin)
+        {
+            WriteLine($"{p.ProductId}: {p.ProductName} in {p.CategoryName}.");
+        }
+    }
 }
