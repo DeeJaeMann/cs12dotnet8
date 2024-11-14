@@ -4,4 +4,5 @@
 //WriteLine($"Provider: {db.Database.ProviderName}");
 
 ConfigureConsole();
-QueryingCategories();
+//QueryingCategories();
+FilteredIncludes();
