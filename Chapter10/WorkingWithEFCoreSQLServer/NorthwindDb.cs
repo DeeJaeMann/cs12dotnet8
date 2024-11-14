@@ -5,6 +5,9 @@ namespace Northwind.EntityModels;
 
 public class NorthwindDb : DbContext
 {
+    public DbSet<Category>? Categories { get; set; }
+    public DbSet<Product>? Products { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         SqlConnectionStringBuilder builder = new();
@@ -26,5 +29,13 @@ public class NorthwindDb : DbContext
         string? connectionString = builder.ConnectionString;
         WriteLine($"Connection: {connectionString}");
         optionsBuilder.UseSqlServer(connectionString);
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Category>()
+            .Property(category => category.CategoryName)
+            .IsRequired()
+            .HasMaxLength(15);
     }
 }
