@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithAppSecrets", "Wo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithEFCoreSQLServer", "WorkingWithEFCoreSQLServer\WorkingWithEFCoreSQLServer.csproj", "{2CF54A79-3F86-49B2-9502-2F58902D7AFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithEFCorePostgreSQL", "WorkingWithEFCorePostgreSQL\WorkingWithEFCorePostgreSQL.csproj", "{8F694675-F62E-4CE5-AB5B-AA8D7002FA52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{2CF54A79-3F86-49B2-9502-2F58902D7AFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CF54A79-3F86-49B2-9502-2F58902D7AFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CF54A79-3F86-49B2-9502-2F58902D7AFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F694675-F62E-4CE5-AB5B-AA8D7002FA52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F694675-F62E-4CE5-AB5B-AA8D7002FA52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F694675-F62E-4CE5-AB5B-AA8D7002FA52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F694675-F62E-4CE5-AB5B-AA8D7002FA52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
