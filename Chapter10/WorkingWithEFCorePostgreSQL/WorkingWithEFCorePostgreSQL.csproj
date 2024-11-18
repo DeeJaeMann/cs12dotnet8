@@ -5,10 +5,21 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <UserSecretsId>3407bf02-8679-4363-b1cc-46f2d62e7828</UserSecretsId>
     </PropertyGroup>
     
     <ItemGroup>
         <Using Include="System.Console" Static="true" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.11" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.1" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.10" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\Northwind.EntityModels\Northwind.EntityModels.csproj" />
     </ItemGroup>
 
 </Project>

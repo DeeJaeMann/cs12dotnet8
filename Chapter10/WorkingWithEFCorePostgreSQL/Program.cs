@@ -1,3 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿//using Northwind.EntityModels; // For NorthwindDb
 
-Console.WriteLine("Hello, World!");
+//NorthwindDb db = new();
+//WriteLine($"Provider: {db.Database.ProviderName}");
+
+ConfigureConsole();
+QueryingCategories();
+//FilteredIncludes();
