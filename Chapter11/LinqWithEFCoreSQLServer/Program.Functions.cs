@@ -58,7 +58,8 @@ partial class Program
             inner: db.Products,
             outerKeySelector: category => category.CategoryId,
             innerKeySelector: product => product.CategoryId,
-            resultSelector: (c, p) => new { c.CategoryName, p.ProductName, p.ProductId });
+            resultSelector: (c, p) => new { c.CategoryName, p.ProductName, p.ProductId })
+            .OrderBy(cp => cp.CategoryName);
 
         WriteLine(queryJoin.ToQueryString());
 
