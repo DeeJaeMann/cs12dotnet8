@@ -29,7 +29,7 @@ partial class Program
         // WriteLine(sortedAndFilteredProducts.ToQueryString());
         WriteLine(projectedProducts.ToQueryString());
 
-        // Inefficient method: gets all properties
+        // Implementation of Inefficient method: gets all properties
         /*
         foreach (Product p in sortedAndFilteredProducts)
         {
@@ -38,7 +38,7 @@ partial class Program
         }
         */
 
-        // Projected method: gets only properties we're going to use
+        // Implementation of Projected method: gets only properties we're going to use
         foreach (var p in projectedProducts)
         {
             WriteLine("{0}: {1} costs {2:$#,##0.00}",
