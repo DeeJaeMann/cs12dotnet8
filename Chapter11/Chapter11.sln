@@ -7,13 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqWithObjects", "LinqWith
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqWithEFCore", "LinqWithEFCore\LinqWithEFCore.csproj", "{3B1478C7-54E9-4DC2-B1C0-11B27852E8CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqWithEFCoreSQLServer", "LinqWithEFCoreSQLServer\LinqWithEFCoreSQLServer.csproj", "{30E137F9-1D7A-4851-A39E-32BBB934CC5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{D72FACA1-CF10-4464-951E-90560FAC7AE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -24,5 +23,12 @@ Global
 		{3B1478C7-54E9-4DC2-B1C0-11B27852E8CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B1478C7-54E9-4DC2-B1C0-11B27852E8CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B1478C7-54E9-4DC2-B1C0-11B27852E8CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30E137F9-1D7A-4851-A39E-32BBB934CC5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30E137F9-1D7A-4851-A39E-32BBB934CC5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30E137F9-1D7A-4851-A39E-32BBB934CC5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30E137F9-1D7A-4851-A39E-32BBB934CC5B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
