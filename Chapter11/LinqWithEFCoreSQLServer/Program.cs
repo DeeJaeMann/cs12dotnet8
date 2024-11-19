@@ -1,3 +1,5 @@
 ﻿ConfigureConsole();
 //FilterAndSort();
-JoinCategoriesAndProducts();
+//JoinCategoriesAndProducts();
+//GroupJoinCategoriesAndProducts();
+ProductsLookup();

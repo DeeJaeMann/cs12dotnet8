@@ -68,4 +68,73 @@ partial class Program
             WriteLine($"{p.ProductId}: {p.ProductName} in {p.CategoryName}.");
         }
     }
+
+    private static void GroupJoinCategoriesAndProducts()
+    {
+        SectionTitle("Group join categories and products");
+
+        using NorthwindDb db = new();
+
+        // Group all products by their category to return 8 matches
+        var queryGroup = db.Categories.AsEnumerable().GroupJoin(
+            inner: db.Products,
+            outerKeySelector: category => category.CategoryId,
+            innerKeySelector: product => product.CategoryId,
+            resultSelector: (c, matchingProducts) => new
+            {
+                c.CategoryName,
+                Products = matchingProducts.OrderBy(p => p.ProductName)
+            });
+
+        foreach (var c in queryGroup)
+        {
+            WriteLine($"{c.CategoryName} has {c.Products.Count()} products.");
+
+            foreach (var product in c.Products)
+            {
+                WriteLine($"  {product.ProductName}");
+            }
+        }
+    }
+
+    private static void ProductsLookup()
+    {
+        SectionTitle("Products lookup");
+
+        using NorthwindDb db = new();
+
+        // Join all products to their category to return 77 matches
+        var productQuery = db.Categories.Join(
+            inner: db.Products,
+            outerKeySelector: category => category.CategoryId,
+            innerKeySelector: product => product.CategoryId,
+            resultSelector: (c, p) => new { c.CategoryName, Product = p });
+
+        ILookup<string, Product> productLookup = productQuery.ToLookup(
+            keySelector: cp => cp.CategoryName,
+            elementSelector: cp => cp.Product);
+
+        foreach (IGrouping<string, Product> group in productLookup)
+        {
+            // Key is Beverages, Condiments, etc.
+            WriteLine($"{group.Key} has {group.Count()} products.");
+
+            foreach (Product product in group)
+            {
+                WriteLine($"  {product.ProductName}");
+            }
+        }
+
+        // We can look up the products by a category name
+        Write("Enter a category name: ");
+        string categoryName = ReadLine()!;
+        WriteLine();
+        WriteLine($"Products in {categoryName}: ");
+
+        IEnumerable<Product> productsInCategory = productLookup[categoryName];
+        foreach (Product product in productsInCategory)
+        {
+            WriteLine($"  {product.ProductName}");
+        }
+    }
 }
