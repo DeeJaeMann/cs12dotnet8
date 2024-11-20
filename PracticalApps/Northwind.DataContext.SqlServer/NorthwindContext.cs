@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
 
 namespace Northwind.EntityModels;
 
@@ -70,8 +71,32 @@ public partial class NorthwindContext : DbContext
     public virtual DbSet<Territory> Territories { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=Northwind;Integrated Security=true;TrustServerCertificate=true;");
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            SqlConnectionStringBuilder builder = new();
+
+            builder.DataSource = ".";
+            builder.InitialCatalog = "Northwind";
+            builder.TrustServerCertificate = true;
+            builder.MultipleActiveResultSets = true;
+
+            // Default is 15 seconds
+            builder.ConnectTimeout = 3;
+
+            // Windows Integrated Security
+            builder.IntegratedSecurity = true;
+
+            // SQL Server authentication
+            //builder.UserID = Environment.GetEnvironmentVariable("MY_SQL_USR");
+            //builder.Password = Environment.GetEnvironmentVariable("MY_SQL_PWD");
+
+            optionsBuilder.UseSqlServer(builder.ConnectionString);
+
+            optionsBuilder.LogTo(NorthwindContextLogger.WriteLine,
+                new[] { Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.CommandExecuting });
+        }
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
