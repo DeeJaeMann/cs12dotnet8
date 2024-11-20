@@ -209,7 +209,7 @@ partial class Program
 
         Clear(); // Clear console
 
-        SectionTitle(pagingQuery.ToQueryString());
+        SectionTitle($"\n{pagingQuery.ToQueryString()}\n");
 
         OutputTableOfProducts(pagingQuery.ToArray(), currentPage, totalPages);
     }
