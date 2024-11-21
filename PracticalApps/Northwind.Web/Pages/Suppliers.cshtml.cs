@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc; // For [BindProperty], IActionResult
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Northwind.EntityModels; // For NortwindContext
 
@@ -11,6 +11,9 @@ namespace Northwind.Web.Pages
         // For static example
         //public IEnumerable<string>? Suppliers { get; set; }
         public IEnumerable<Supplier>? Suppliers { get; set; }
+
+        [BindProperty]
+        public Supplier? Supplier { get; set; }
 
         public SuppliersModel(NorthwindContext db)
         {
@@ -30,6 +33,20 @@ namespace Northwind.Web.Pages
             Suppliers = _db.Suppliers
                 .OrderBy(c => c.Country)
                 .ThenBy(c => c.CompanyName);
+        }
+
+        public IActionResult OnPost()
+        {
+            if (Supplier is not null && ModelState.IsValid)
+            {
+                _db.Suppliers.Add(Supplier);
+                _db.SaveChanges();
+                return RedirectToPage("/suppliers");
+            }
+            else
+            {
+                return Page(); // Return to original page
+            }
         }
     }
 }
