@@ -1,6 +1,6 @@
-using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using Northwind.Mvc.Models;
+using System.Diagnostics; // For Activity
+using Microsoft.AspNetCore.Mvc; // For Controller, IActionResult
+using Northwind.Mvc.Models; // For ErrorViewModel
 
 namespace Northwind.Mvc.Controllers
 {
