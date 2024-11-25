@@ -13,7 +13,7 @@ public class EmployeesListPageModel : PageModel
         _db = db;
     }
 
-    public Employee[] Employees { get; set; }
+    public Employee[] Employees { get; set; } = null!;
 
     public void OnGet()
     {
