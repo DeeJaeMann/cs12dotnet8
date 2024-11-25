@@ -1,7 +1,10 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Northwind.Mvc.Data;
+#region Import namespaces
+using Microsoft.AspNetCore.Identity; // For IdentityUser
+using Microsoft.EntityFrameworkCore; // For UseSqlServer
+using Northwind.Mvc.Data; // For ApplicationDbContext
+#endregion
 
+#region Configure the host web server including services
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -15,8 +18,9 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+#endregion
 
-// Configure the HTTP request pipeline.
+#region Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -39,5 +43,8 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
+#endregion
 
-app.Run();
+#region Start the host web server listening for HTTP requests
+app.Run(); // Blocking call
+#endregion
