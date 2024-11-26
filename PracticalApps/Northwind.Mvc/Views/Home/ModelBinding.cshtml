@@ -10,7 +10,9 @@
 <div>
     Enter values for your thing in the following form:
 </div>
-<form method="POST" action="/home/modelbinding?id=3">
+<form method="POST" action="/home/modelbinding/2?id=3">
+    <!-- Highest priority -->
+    <input name="id" value="1" />
     <input name="color" value="Red" />
     <input name="email" value="test@example.com" />
     <input type="submit" />
