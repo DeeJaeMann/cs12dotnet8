@@ -17,6 +17,7 @@ namespace Northwind.Mvc.Controllers
             _db = db;
         }
 
+        [ResponseCache(Duration = 10, Location = ResponseCacheLocation.Any)]
         public IActionResult Index()
         {
             // Logging demo

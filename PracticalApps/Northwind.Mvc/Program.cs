@@ -35,6 +35,8 @@ else
     builder.Services.AddNorthwindContext(sql.ConnectionString);
 }
 
+builder.Services.AddOutputCache(options => options.DefaultExpirationTimeSpan = TimeSpan.FromSeconds(10));
+
 var app = builder.Build();
 #endregion
 
@@ -57,10 +59,15 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.UseOutputCache();
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
+
+app.MapGet("/notcached", () => DateTime.Now.ToString());
+app.MapGet("/cached", () => DateTime.Now.ToString()).CacheOutput();
 #endregion
 
 #region Start the host web server listening for HTTP requests
