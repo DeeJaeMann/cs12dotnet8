@@ -63,7 +63,8 @@ app.UseOutputCache();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}")
+    .CacheOutput();
 app.MapRazorPages();
 
 app.MapGet("/notcached", () => DateTime.Now.ToString());
