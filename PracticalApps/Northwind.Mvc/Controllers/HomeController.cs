@@ -84,5 +84,27 @@ namespace Northwind.Mvc.Controllers
 
             return View(model); // Show the model bound thing
         }
+
+        public IActionResult ProductsThatCostMoreThan(decimal? price)
+        {
+            if (!price.HasValue)
+            {
+                return BadRequest("You must pass a product price in the query string, for example, /Home/ProductsThatCostMoreThan?price=50");
+            }
+
+            IEnumerable<Product> model = _db.Products
+                .Include(p => p.Category)
+                .Include(p => p.Supplier)
+                .Where(p => p.UnitPrice > price);
+
+            if (!model.Any())
+            {
+                return NotFound($"No products cost more than {price:C}.");
+            }
+
+            ViewData["MaxPrice"] = price.Value.ToString("C");
+
+            return View(model);
+        }
     }
 }
