@@ -1,7 +1,7 @@
 using System.Diagnostics; // For Activity
 using Microsoft.AspNetCore.Mvc; // For Controller, IActionResult
 using Northwind.Mvc.Models; // For ErrorViewModel
-using Northwind.EntityModels; // For NortwindContext
+using Northwind.EntityModels; // For NorthwindContext
 using Microsoft.EntityFrameworkCore; // For Include, ToListAsync
 
 namespace Northwind.Mvc.Controllers
