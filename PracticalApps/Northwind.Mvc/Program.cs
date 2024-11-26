@@ -35,7 +35,15 @@ else
     builder.Services.AddNorthwindContext(sql.ConnectionString);
 }
 
-builder.Services.AddOutputCache(options => options.DefaultExpirationTimeSpan = TimeSpan.FromSeconds(10));
+// Caches everything
+//builder.Services.AddOutputCache(options => options.DefaultExpirationTimeSpan = TimeSpan.FromSeconds(10));
+
+// Disable varying by query string parameters
+builder.Services.AddOutputCache(options =>
+{
+    options.DefaultExpirationTimeSpan = TimeSpan.FromSeconds(20);
+    options.AddPolicy("views", p => p.SetVaryByQuery("alertstyle"));
+});
 
 var app = builder.Build();
 #endregion
@@ -64,7 +72,12 @@ app.UseOutputCache();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
-    .CacheOutput();
+    // Disabled caching to avoid confusion
+    // Doesn't use a policy
+    //.CacheOutput();
+    // Use the views policy
+    //.CacheOutput(policyName: "views");
+    ;
 app.MapRazorPages();
 
 app.MapGet("/notcached", () => DateTime.Now.ToString());
