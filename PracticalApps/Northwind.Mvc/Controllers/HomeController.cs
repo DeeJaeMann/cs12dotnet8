@@ -2,7 +2,7 @@ using System.Diagnostics; // For Activity
 using Microsoft.AspNetCore.Mvc; // For Controller, IActionResult
 using Northwind.Mvc.Models; // For ErrorViewModel
 using Northwind.EntityModels; // For NortwindContext
-using Microsoft.EntityFrameworkCore; // For Include
+using Microsoft.EntityFrameworkCore; // For Include, ToListAsync
 
 namespace Northwind.Mvc.Controllers
 {
@@ -18,7 +18,9 @@ namespace Northwind.Mvc.Controllers
         }
 
         [ResponseCache(Duration = 10, Location = ResponseCacheLocation.Any)]
-        public IActionResult Index()
+        // Non-Async method
+        //public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             // Logging demo
             /*
@@ -27,12 +29,21 @@ namespace Northwind.Mvc.Controllers
             _logger.LogWarning("Second warning!");
             _logger.LogInformation("I am in the Index method of the HomeController.");
             */
+            // Non Async
+            /*
             HomeIndexViewModel model = new
                 (
                 VisitorCount: Random.Shared.Next(1, 1001),
                 Categories: _db.Categories.ToList(),
                 Products: _db.Products.ToList()
-                );
+            );
+            */
+            HomeIndexViewModel model = new
+            (
+                VisitorCount: Random.Shared.Next(1, 1001),
+                Categories: await _db.Categories.ToListAsync(),
+                Products: await _db.Products.ToListAsync()
+            );
             return View(model); // Pass the model to the view
         }
 
@@ -48,7 +59,9 @@ namespace Northwind.Mvc.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult ProductDetail(int? id, string alertstyle = "success")
+        // non-Async
+        //public IActionResult ProductDetail(int? id, string alertstyle = "success")
+        public async Task<IActionResult> ProductDetail(int? id, string alertstyle = "success")
         {
             ViewData["alertstyle"] = alertstyle;
             if (!id.HasValue)
@@ -56,8 +69,13 @@ namespace Northwind.Mvc.Controllers
                 return BadRequest("You must pass a product ID in the route, for example, /Home/ProductDetail/21");
             }
 
+            // non-Async
+            /*
             Product? model = _db.Products.Include(p => p.Category)
                 .SingleOrDefault(p => p.ProductId == id);
+            */
+            Product? model = await _db.Products.Include(p => p.Category)
+                .SingleOrDefaultAsync(p => p.ProductId == id);
 
             if (model is null)
             {
