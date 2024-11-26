@@ -35,6 +35,7 @@ namespace Northwind.Mvc.Controllers
             return View(model); // Pass the model to the view
         }
 
+        [Route("private")]
         public IActionResult Privacy()
         {
             return View();
