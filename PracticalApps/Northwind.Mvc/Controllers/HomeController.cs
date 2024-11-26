@@ -63,5 +63,23 @@ namespace Northwind.Mvc.Controllers
 
             return View(model); // Pass model to view then return result
         }
+
+        // This action method will handle GET and other requests except POST
+        public IActionResult ModelBinding()
+        {
+            return View(); // The page with a form to submit
+        }
+
+        [HttpPost]
+        public IActionResult ModelBinding(Thing thing)
+        {
+            HomeModelBindingViewModel model = new(
+                Thing: thing, HasErrors: !ModelState.IsValid, ValidationErrors: ModelState.Values
+                .SelectMany(state => state.Errors)
+                .Select(error => error.ErrorMessage)
+                );
+
+            return View(model); // Show the model bound thing
+        }
     }
 }
