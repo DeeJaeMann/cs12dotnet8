@@ -1,0 +1,18 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+@base_address = https://localhost:5141/api/customers/
+
+### Make POST request to base address
+POST {{base_address}}
+Content-Type: application/json
+{
+  "customerID": "ABCXY",
+  "companyName": "ABC Corp",
+  "contactName": "John Smith",
+  "contactTitle": "Sir",
+  "address": "Main Street",
+  "city": "New York",
+  "region": "NY",
+  "postalCode": "90210",
+  "country": "USA",
+  "phone": "(123) 555-1234"
+}
