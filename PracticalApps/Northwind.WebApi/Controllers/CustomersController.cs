@@ -73,5 +73,28 @@ namespace Northwind.WebApi.Controllers
                     value: addedCustomer);
             }
         }
+
+        // PUT: api/customers/[id]
+        // BODY: Customer (JSON, XML)
+        [HttpPut("{id}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> Update(string id, [FromBody] Customer c)
+        {
+            id = id.ToUpper();
+            c.CustomerId = c.CustomerId.ToUpper();
+            if (c == null || c.CustomerId != id)
+            {
+                return BadRequest();
+            }
+            Customer? existing = await _repo.RetrieveAsync(id);
+            if (existing == null)
+            {
+                return NotFound();
+            }
+            await _repo.UpdateAsync(c);
+            return new NoContentResult();
+        }
     }
 }
