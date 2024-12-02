@@ -104,6 +104,21 @@ namespace Northwind.WebApi.Controllers
         [ProducesResponseType(404)]
         public async Task<IActionResult> Delete(string id)
         {
+            // Simulating bad request that needs custom data returned
+            if (id == "bad")
+            {
+                ProblemDetails problemDetails = new()
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                    Type = "https://localhost:5141/customers/failed-to-delete",
+                    Title = $"Customer ID {id} found but failed to delete.",
+                    Detail = "More details like Company Name, Country, etc.",
+                    Instance = HttpContext.Request.Path
+                };
+                return BadRequest(problemDetails);
+            }
+
+
             Customer? existing = await _repo.RetrieveAsync(id);
             if (existing == null)
             {
