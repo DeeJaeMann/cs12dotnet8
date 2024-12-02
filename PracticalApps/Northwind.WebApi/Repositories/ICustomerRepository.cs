@@ -2,6 +2,7 @@
 
 namespace Northwind.WebApi.Repositories
 {
+    // Interface with CRUD methods
     public interface ICustomerRepository
     {
 
