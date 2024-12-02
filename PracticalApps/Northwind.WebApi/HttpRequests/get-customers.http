@@ -1,0 +1,19 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+### Configure a variable for web service base address
+@base_address = https://localhost:5141/api/customers/
+
+### Make GET request to base address
+GET {{base_address}}
+
+### Get customers in Germany
+GET {{base_address}}?country=Germany
+
+### Get customers in USA in XML format
+GET {{base_address}}?country=USA
+Accept: application/xml
+
+### Get Alfreds Futterkiste
+GET {{base_address}}ALFKI
+
+### Get non-existant customer
+GET {{base_address}}abcxy
