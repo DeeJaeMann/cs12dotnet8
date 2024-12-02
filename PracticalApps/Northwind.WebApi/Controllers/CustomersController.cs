@@ -96,5 +96,28 @@ namespace Northwind.WebApi.Controllers
             await _repo.UpdateAsync(c);
             return new NoContentResult();
         }
+
+        // DELETE: api/customers/[id]
+        [HttpDelete("{id}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> Delete(string id)
+        {
+            Customer? existing = await _repo.RetrieveAsync(id);
+            if (existing == null)
+            {
+                return NotFound();
+            }
+            bool? deleted = await _repo.DeleteAsync(id);
+            if (deleted.HasValue && deleted.Value)
+            {
+                return new NoContentResult();
+            }
+            else
+            {
+                return BadRequest($"Customer {id} was found but failed to delete.");
+            }
+        }
     }
 }
