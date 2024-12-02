@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity; // For IdentityUser
 using Microsoft.EntityFrameworkCore; // For UseSqlServer
 using Northwind.Mvc.Data; // For ApplicationDbContext
 using Northwind.EntityModels; // For AddNorthwindContext
+using System.Net.Http.Headers; // For MediaTypeWithQualityHeaderValue
 #endregion
 
 #region Configure the host web server including services
@@ -43,6 +44,14 @@ builder.Services.AddOutputCache(options =>
 {
     options.DefaultExpirationTimeSpan = TimeSpan.FromSeconds(20);
     options.AddPolicy("views", p => p.SetVaryByQuery("alertstyle"));
+});
+
+builder.Services.AddHttpClient(name: "Northwind.WebApi", configureClient: options =>
+{
+    options.BaseAddress = new Uri("https://localhost:5141/");
+    options.DefaultRequestHeaders.Accept.Add(
+        new MediaTypeWithQualityHeaderValue(
+            mediaType: "application/json", quality: 1.0));
 });
 
 var app = builder.Build();
